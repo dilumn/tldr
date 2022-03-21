@@ -14,7 +14,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_20_182226) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "organizations", force: :cascade do |t|
+  create_table "organiations", force: :cascade do |t|
     t.string "name"
     t.string "logo"
     t.boolean "pegged", default: false
