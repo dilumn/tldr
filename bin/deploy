@@ -1,0 +1,4 @@
+#!/bin/bash
+
+heroku run rails db:migrate
+git push heroku master
