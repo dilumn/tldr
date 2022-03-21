@@ -1,0 +1,24 @@
+<div class="container w-50">
+  <% @organizations.each do |organization| %>
+    <div class="text-center mb-4 border border-5">
+      <div class="col">
+        <div class="card rounded-3 shadow-sm">
+          <div class="card-body">
+            <h1 class="my-0 fw-normal display-1"><%= organization.name %></h1>
+            <% if organization.pegged %>
+              <div class="m-5 bg-success">
+                <h1>🥳</h1>
+              </div>
+            <% else %>
+              <div class="m-5 bg-danger">
+                <h1>🙅‍♂️</h1>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
