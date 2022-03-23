@@ -1,10 +1,10 @@
-<div class="container w-50">
+<div class="d-flex flex-wrap ps-5 pe-5 justify-content-around">
   <% @organizations.each do |organization| %>
-    <div class="text-center mb-4 border border-5">
+    <div class="text-center mb-4">
       <div class="col">
-        <div class="card rounded-3 shadow-sm">
+        <div class="card rounded-3 shadow-sm bg-light border border-5">
           <div class="card-body">
-            <h1 class="my-0 fw-normal display-1"><%= organization.name %></h1>
+            <h1 class="my-0 fw-normal display-6 header-title"><%= organization.name %></h1>
             <% if organization.pegged %>
               <div class="m-5 bg-success">
                 <h1>🥳YES💃</h1>
@@ -20,5 +20,3 @@
     </div>
   <% end %>
 </div>
-
-
