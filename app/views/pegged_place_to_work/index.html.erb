@@ -1,0 +1,14 @@
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col-4 grid-header-col">Company name</div>
+    <div class="col-4 grid-header-col">Pegged to currency</div>
+  </div>
+
+  <% @organizations.each do |organization| %>
+    <div class="row justify-content-center">
+      <div class="col-4 grid-content-col"><%= organization.name %></div>
+      <div class="col-4 grid-content-col"><%= organization.pegged_currency %></div>
+    </div>
+  <% end %>
+</div>
