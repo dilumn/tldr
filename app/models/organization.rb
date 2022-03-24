@@ -3,7 +3,12 @@ class Organization < ApplicationRecord
     USD: 'USD',
     EURO: 'EURO',
     AUD: 'AUD',
-    SGD: 'SGD'
+    SGD: 'SGD',
+    GBP: 'GBP',
+    SDK: 'SDK',
+    NZD: 'NZD',
+    HKD: 'HKD',
+    BTC: 'BTC'
   }
 
   validates :name, uniqueness: true
