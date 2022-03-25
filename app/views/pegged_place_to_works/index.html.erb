@@ -3,6 +3,20 @@
     Need to add or change any data here? <%= link_to "Submit", "https://github.com/dilumn/peggedplacetowork#addchange-company-data", :target => "_blank" %>
   </p>
 
+  <hr class="mb-3">
+
+  <%= search_form_for @q, url: root_path, class: 'row pb-3' do |f| %>
+    <div class="col-4 col-md-5">
+      <%= f.text_field :name_cont, placeholder: 'Search by company name', class: "form-control" %>
+    </div>
+    <div class="col-4 col-md-2">
+      <%= f.select :pegged_currency_eq, Organization.pegged_currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
+    </div>
+    <div class="col-4 col-md-5">
+      <%= f.submit 'Search', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
   <div class="row justify-content-center">
     <div class="col-4 col-md-5 grid-header-col">Company name</div>
     <div class="col-3 col-md-2  grid-header-col">Pegged to currency</div>

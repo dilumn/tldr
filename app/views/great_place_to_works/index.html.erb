@@ -1,4 +1,17 @@
 <div class="container">
+
+  <%= search_form_for @q, url: great_vs_pegged_place_to_work_path, class: 'row pb-3' do |f| %>
+    <div class="col-4 col-md-5">
+      <%= f.text_field :name_cont, placeholder: 'Search by company name', class: "form-control" %>
+    </div>
+    <div class="col-4 col-md-2">
+      <%= f.select :pegged_eq, [['YES', true], ['NO', false]], { include_blank: 'Pegged or not'}, class: "form-control" %>
+    </div>
+    <div class="col-4 col-md-5">
+      <%= f.submit 'Search', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
   <div class="row justify-content-center text-center">
     <div class="col-6 grid-header-col">"Great" Place To Work Company name</div>
     <div class="col-6 grid-header-col">Pegged to foreign currency or not</div>
