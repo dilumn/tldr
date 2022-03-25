@@ -1,24 +1,18 @@
-# README
+# PeggedPlaceToWork
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://raw.githubusercontent.com/dilumn/peggedplacetowork/master/app/assets/images/logo.png)
 
-Things you may want to cover:
+This is the Ruby on Rails application of [peggedplacetowork.lk](https://peggedplacetowork.lk/)
 
-* Ruby version
+### Local development
+prerequisites -
+- Ruby 3.0.2
+- Postgres
 
-* System dependencies
+Run `bundle install` to download the dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Database setup
+```
+rake db:create
+rake db:migrate
+```
