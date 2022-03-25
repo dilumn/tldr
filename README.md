@@ -48,6 +48,8 @@ class NameOfDataMigration < ActiveRecord::Migration[7.0]
 end
 ```
 
+Contributions are very welcome
+
 ### Local development
 prerequisites -
 - Ruby 3.0.2
