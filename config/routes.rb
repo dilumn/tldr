@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'great_vs_pegged_place_to_work', to: 'great_place_to_works#index'
 
   resources :change_requests, only: %i[new create]
+
+  get '*path' => redirect('/') unless Rails.env.development?
 end
