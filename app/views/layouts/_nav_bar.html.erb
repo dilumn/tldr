@@ -1,7 +1,6 @@
 <div class="container">
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="/"/></svg>
       <%= image_tag("logo.png", width: 200) %>
     </a>
 
@@ -16,7 +15,9 @@
         <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
         <li class="nav-item"><a href="/great_vs_pegged_place_to_work" class="nav-link">"Great" vs Pegged place to work</a></li>
       <% end %>
-      <%= link_to 'Request Change', new_change_request_path, class: "ms-1 btn btn-warning"%>
+      <%= link_to 'Request Change', new_change_request_path, class: "ms-1 me-2 btn btn-warning" %>
+
+      <%= link_to image_tag("github-logo.png", width: 40), "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
     </ul>
   </header>
 </div>
