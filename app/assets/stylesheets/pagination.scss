@@ -11,16 +11,16 @@ nav.pagination {
   .next,
   .last,
   .prev {
-    @extend .page-item;
+    @extend .page-item !optional;
 
     &.current,
     &.gap {
-      @extend .page-link;
+      @extend .page-link !optional;
     }
 
     &.current {
       color: white !important;
-      background-color: $primary !important;
+      background-color: #0d6efd !important;
     }
 
     a {
