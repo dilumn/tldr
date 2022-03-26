@@ -1,0 +1,30 @@
+nav.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  white-space: nowrap;
+
+  align-items: flex-start;
+
+  .page,
+  .first,
+  .next,
+  .last,
+  .prev {
+    @extend .page-item;
+
+    &.current,
+    &.gap {
+      @extend .page-link;
+    }
+
+    &.current {
+      color: white !important;
+      background-color: $primary !important;
+    }
+
+    a {
+      @extend .page-link;
+    }
+  }
+}

@@ -21,6 +21,7 @@ gem 'bootstrap', '~> 5.1.3'
 
 gem 'nonschema_migrations', '~> 6.5'
 gem "ransack", "~> 2.6"
+gem 'kaminari'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
