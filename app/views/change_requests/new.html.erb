@@ -2,25 +2,31 @@
 
   <h4>Please submit your change requests here if you want any data to be changed.</h4>
 
-  <%= form_with model: @change_request, class: 'row pt-3' do |f| %>
-    <div class="col-4 col-md-5 pb-3">
-      <%= f.select :request_type, ChangeRequest.request_types.map { |key, value| [key.humanize, key] }, { include_blank: 'Request type'}, class: "form-control col-4" %>
+  <%= form_with model: @change_request, class: 'pt-3 pb-3' do |f| %>
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.select :request_type, ChangeRequest.request_types.map { |key, value| [key.humanize, key] }, { include_blank: 'Request type'}, class: "form-control col-4" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.text_field :company_name, required: true, placeholder: 'Company name', class: "form-control col-4 col-md-2" %>
+      </div>
     </div>
 
-    <div class="col-4 col-md-5 pb-3">
-      <%= f.text_field :company_name, required: true, placeholder: 'Company name', class: "form-control col-4 col-md-2" %>
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.select :pegged_currency, ChangeRequest.pegged_currencies, { include_blank: 'Pegged Currency'}, class: "form-control" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.text_field :description, placeholder: 'Description', class: "form-control" %>
+      </div>
     </div>
 
-    <div class="col-4 col-md-5 pb-3">
-      <%= f.select :pegged_currency, ChangeRequest.pegged_currencies, { include_blank: 'Pegged Currency'}, class: "form-control" %>
-    </div>
-
-    <div class="col-4 col-md-5 pb-3">
-      <%= f.text_field :description, placeholder: 'Description', class: "form-control" %>
-    </div>
-
-    <div class="col-4 col-md-5 pb-3">
-      <%= f.text_field :context, placeholder: 'Remarks (if any)', class: "form-control" %>
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.text_field :context, placeholder: 'Remarks(Eg: company pegging rate if not dynamic exchange rate)', class: "form-control" %>
+      </div>
     </div>
 
     <div class="row justify-content-center mt-3">
@@ -28,6 +34,6 @@
         <%= f.submit "Request", class: "form-control btn btn-primary" %>
       </div>
     </div>
-    
+
   <% end %>
 </div>
