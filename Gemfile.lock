@@ -87,6 +87,7 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    google-analytics-rails (1.1.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.3)
@@ -230,6 +231,7 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.1.3)
   debug
+  google-analytics-rails (= 1.1.1)
   importmap-rails
   jbuilder
   kaminari

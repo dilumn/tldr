@@ -10,6 +10,8 @@
     <%= javascript_importmap_tags %>
 
     <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   </head>
 
   <body>
