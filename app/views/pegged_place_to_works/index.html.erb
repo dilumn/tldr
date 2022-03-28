@@ -28,14 +28,14 @@
   <div class="row justify-content-center">
     <div class="col-4 col-md-5 grid-header-col">Company name</div>
     <div class="col-3 col-md-2  grid-header-col">Pegged to currency</div>
-    <div class="col-5 col-md-5 grid-header-col">Remarks(Eg: company pegging rate if not dynamic exchange rate)</div>
+    <div class="col-5 col-md-5 grid-header-col">Details</div>
   </div>
 
   <% @organizations.each do |organization| %>
     <div class="row justify-content-center">
       <div class="col-4 col-md-5 grid-content-col"><%= organization.name %></div>
       <div class="col-3 col-md-2 grid-content-col"><%= organization.pegged_currency %></div>
-      <div class="col-5 col-md-5 grid-content-col"><%= organization.remarks %></div>
+      <div class="col-5 col-md-5 grid-content-col"><%= organization.remarks_display.html_safe %></div>
     </div>
   <% end %>
 

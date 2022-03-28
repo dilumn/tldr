@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_26_140643) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_28_064236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_140643) do
     t.string "context"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pegging_value"
+    t.string "proportion"
   end
 
   create_table "data_migrations", id: false, force: :cascade do |t|
@@ -37,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_26_140643) do
     t.boolean "great_place_to_work", default: false
     t.string "pegged_currency"
     t.string "remarks"
+    t.integer "pegging_value"
+    t.string "proportion"
   end
 
 end

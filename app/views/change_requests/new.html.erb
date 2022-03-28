@@ -25,7 +25,17 @@
 
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
-        <%= f.text_field :context, placeholder: 'Remarks(Eg: company pegging rate if not dynamic exchange rate)', class: "form-control" %>
+        <%= f.number_field :pegging_value, placeholder: 'Initial salary pegging value', class: "form-control" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.select :proportion, ChangeRequest.proportions, { include_blank: 'Salary proportion'}, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.text_field :context, placeholder: 'Additional remarks', class: "form-control" %>
       </div>
     </div>
 
