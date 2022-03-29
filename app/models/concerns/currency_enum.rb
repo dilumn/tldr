@@ -8,7 +8,7 @@ module CurrencyEnum
       AUD: 'AUD',
       SGD: 'SGD',
       GBP: 'GBP',
-      SDK: 'SDK',
+      SEK: 'SEK',
       NZD: 'NZD',
       HKD: 'HKD',
       BTC: 'BTC'
