@@ -1,6 +1,12 @@
 <div class="container">
 
   <h4>Please submit your change requests here if you want any data to be changed.</h4>
+  <p>
+    Only existing data change requests will be managed by this form.
+  </p>
+  <p>
+    If you need to add your company to the list? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork#addchange-company-data", target: '_blank' %>
+  </p>
 
   <%= form_with model: @change_request, class: 'pt-3 pb-3' do |f| %>
     <div class="row">
