@@ -1,17 +1,11 @@
 <div class="container">
 
   <h4>Please submit your change requests here if you want any data to be changed.</h4>
-  <p>
-    Only existing data change requests will be managed by this form.
-  </p>
-  <p>
-    If you need to add your company to the list? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork#addchange-company-data", target: '_blank' %>
-  </p>
 
   <%= form_with model: @change_request, class: 'pt-3 pb-3' do |f| %>
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
-        <%= f.select :request_type, ChangeRequest.request_types.map { |key, value| [key.humanize, key] }, { include_blank: 'Request type'}, class: "form-control col-4" %>
+        <%= f.select :request_type, ChangeRequest.request_types.map { |key, value| [key.humanize, key] }, { include_blank: 'Request type' }, class: "form-control col-4" %>
       </div>
 
       <div class="col-12 col-md-6 pb-3">
@@ -21,11 +15,17 @@
 
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
-        <%= f.select :pegged_currency, ChangeRequest.pegged_currencies, { include_blank: 'Pegged Currency'}, class: "form-control" %>
+        <%= f.select :pegged_currency, ChangeRequest.pegged_currencies, { include_blank: 'Pegged Currency' }, class: "form-control" %>
       </div>
 
       <div class="col-12 col-md-6 pb-3">
-        <%= f.text_field :description, placeholder: 'Description', class: "form-control" %>
+        <p>
+          We won't accept "Add new data" without proof details (Eg: Company blog post, LinkedIn post etc) in the description to manage the credibility
+        </p>
+        <p>
+          If you need to add your company without proof link? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork#addchange-company-data", target: '_blank' %>
+        </p>
+        <%= f.text_area :description, placeholder: 'Description', class: "form-control" %>
       </div>
     </div>
 
@@ -35,7 +35,7 @@
       </div>
 
       <div class="col-12 col-md-6 pb-3">
-        <%= f.select :proportion, ChangeRequest.proportions, { include_blank: 'Salary proportion'}, class: "form-control" %>
+        <%= f.select :proportion, ChangeRequest.proportions, { include_blank: 'Salary proportion' }, class: "form-control" %>
       </div>
     </div>
 
