@@ -11,7 +11,8 @@ module CurrencyEnum
       SEK: 'SEK',
       NZD: 'NZD',
       HKD: 'HKD',
-      BTC: 'BTC'
+      BTC: 'BTC',
+      NOK: 'NOK'
     }
   end
 end
