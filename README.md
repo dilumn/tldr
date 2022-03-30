@@ -24,9 +24,10 @@ class NameOfDataMigration < ActiveRecord::Migration[7.0]
     Organization.create!(
       name: "Company name",
       pegged: true,
-      great_place_to_work: false,
       pegged_currency: 'USD',
-      remarks: 'Any remarks here'
+      remarks: 'Any remarks here',
+      pegging_value: PEGGING_VALUE::INT,
+      proportion: fully/partially
     )
   end
 end
@@ -40,9 +41,10 @@ class NameOfDataMigration < ActiveRecord::Migration[7.0]
     Organization.find_by(name: 'Company name').update!(
       name: "Company new name",
       pegged: true,
-      great_place_to_work: false,
       pegged_currency: 'USD',
-      remarks: 'Any remarks here'
+      remarks: 'Any remarks here',
+      pegging_value: PEGGING_VALUE::INT,
+      proportion: fully/partially
     )
   end
 end
