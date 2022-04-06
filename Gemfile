@@ -18,6 +18,10 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem 'bootstrap', '~> 5.1.3'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'nonschema_migrations', '~> 6.5'
 gem "ransack", "~> 2.6"
@@ -27,8 +31,10 @@ gem 'google-analytics-rails', '1.1.1'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'dotenv-rails'
 end
 
 group :development do
   gem "web-console"
+  gem 'pry'
 end
