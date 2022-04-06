@@ -17,8 +17,11 @@
       <% end %>
 
       <div>
-        <%= link_to 'Request Change', new_change_request_path, class: "ms-1 me-2 btn btn-warning" %>
+        <% if current_user&.admin_user? %>
+          <%= link_to 'Admin page', rails_admin_path, class: "ms-1 me-2 btn btn-success" %>          
+        <% end %>
 
+        <%= link_to 'Request Change', new_change_request_path, class: "ms-1 me-2 btn btn-warning" %>
         <%= link_to image_tag("github-logo.png", width: 40), "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
       </div>
     </ul>
