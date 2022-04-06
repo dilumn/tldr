@@ -21,6 +21,7 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'nonschema_migrations', '~> 6.5'
 gem "ransack", "~> 2.6"
@@ -35,4 +36,5 @@ end
 
 group :development do
   gem "web-console"
+  gem 'pry'
 end
