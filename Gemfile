@@ -23,6 +23,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
+gem 'rails_admin'
+gem 'cancancan'
+
 gem 'nonschema_migrations', '~> 6.5'
 gem "ransack", "~> 2.6"
 gem 'kaminari'

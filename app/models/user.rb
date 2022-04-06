@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
+  ADMIN_ROLES = %w(readonly_admin operation_admin super_admin)
+
   enum role: {
     normal_user: 'normal_user',
     readonly_admin: 'readonly_admin',
@@ -15,5 +17,9 @@ class User < ApplicationRecord
 
     user.update(full_name: full_name, uid: uid, avatar_url: avatar_url)
     user
+  end
+
+  def admin_user?
+    ADMIN_ROLES.include?(role)
   end
 end
