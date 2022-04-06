@@ -18,6 +18,9 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem 'bootstrap', '~> 5.1.3'
 
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
 
 gem 'nonschema_migrations', '~> 6.5'
 gem "ransack", "~> 2.6"
