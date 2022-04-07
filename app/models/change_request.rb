@@ -7,5 +7,11 @@ class ChangeRequest < ApplicationRecord
     change_existing_details: 'change_existing_details'
   }
 
+  enum status: {
+    pending: 'pending',
+    approved: 'approved',
+    not_enough_proof: 'not_enough_proof'
+  }
+
   validates :request_type, :company_name, :pegged_currency, presence: true
 end

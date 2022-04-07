@@ -20,7 +20,7 @@
 
       <div class="col-12 col-md-6 pb-3">
         <p>
-          We won't accept "Add new data" without proof details (Eg: Company blog post, LinkedIn post etc) in the description to manage the credibility
+          We won't accept "Add new data" without proof details (Eg: Company blog post, LinkedIn post etc) in the description to maintain the credibility
         </p>
         <p>
           If you need to add your company without proof link? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork#addchange-company-data", target: '_blank' %>
@@ -51,5 +51,25 @@
       </div>
     </div>
 
+  <% end %>
+
+  <h4 class="mt-5">Here are previous change requests we couldn't add because lack of proof details. Please resubmit with proof or submit via Github</h4>
+
+  <div class="row justify-content-center">
+    <div class="col-4 col-md-2 grid-header-col">Request type</div>
+    <div class="col-4 col-md-2  grid-header-col">Company name</div>
+    <div class="col-3 col-md-3 d-none d-md-block grid-header-col">Description</div>
+    <div class="col-3 col-md-3 d-none d-md-block grid-header-col">Context</div>
+    <div class="col-4 col-md-2 grid-header-col">Status</div>
+  </div>
+
+  <% @no_proof_change_requests.each do |change_request| %>
+    <div class="row justify-content-center">
+      <div class="col-4 col-md-2 grid-content-col"><%= change_request.request_type.humanize %></div>
+      <div class="col-4 col-md-2 grid-content-col"><%= change_request.company_name %></div>
+      <div class="col-3 col-md-3 grid-content-col"><%= change_request.description %></div>
+      <div class="col-3 col-md-3 grid-content-col"><%= change_request.context %></div>
+      <div class="col-4 col-md-2 grid-content-col"><%= change_request.status.humanize %></div>
+    </div>
   <% end %>
 </div>
