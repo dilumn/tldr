@@ -21,6 +21,6 @@ class Ability
   end
 
   def operation_admin
-    can [:read, :update], [Organization, ChangeRequest]
+    can [:read, :create, :update], [Organization, ChangeRequest]
   end
 end
