@@ -1,4 +1,4 @@
-class AddCpToList < ActiveRecord::Migration[7.0]
+class AddIsaToList < ActiveRecord::Migration[7.0]
   def change
     Organization.create!(
       name: "ISA / Accelaero",
