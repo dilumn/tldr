@@ -13,7 +13,8 @@ module CurrencyEnum
       HKD: 'HKD',
       BTC: 'BTC',
       NOK: 'NOK',
-      CAD: 'CAD'
+      CAD: 'CAD',
+      AED: 'AED'
     }
   end
 end
