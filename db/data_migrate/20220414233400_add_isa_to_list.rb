@@ -7,7 +7,7 @@ class AddIsaToList < ActiveRecord::Migration[7.0]
       pegged_currency: 'AED',
       remarks: 'Salary will be fully pegged. EPF, ETF will be calculated on the pegged salary. Will be applicable from April',
       pegging_value: 55,
-      proportion: fully
+      proportion: 'fully'
     )
   end
 end
