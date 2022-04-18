@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   scope :constraints => lambda {|req| MultiTenant::FetchTenant.call(req) == 'techsalary' } do
-    root :to => "great_place_to_works#index", as: :techsalary_root
+    root :to => "tech_salaries#index", as: :techsalary_root
   end
 
   get '*path' => redirect('/') unless Rails.env.development?

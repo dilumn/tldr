@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   def tenant
     return 'rails_admin' if request.path.include?('admin')
 
-    ::MultiTenant::FetchTenant.call(request) || 'peggedplacetowork'
+    ::MultiTenant::FetchTenant.call(request)
   end
 end

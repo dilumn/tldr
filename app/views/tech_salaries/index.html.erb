@@ -1,0 +1,43 @@
+<div class="container">
+  <p>
+    Need to change any data here? <%= link_to "Submit", new_change_request_path %>
+  </p>
+  <p>
+    Need to add your company to the list? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork/issues/new", target: '_blank' %>
+  </p>
+
+  <hr class="mb-3">
+
+  <%= search_form_for @q, url: techsalary_root_path, class: 'row pb-3' do |f| %>
+    <div class="col-4 col-md-2">
+      <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
+    </div>
+    <div class="col-4 col-md-5">
+      <%= f.submit 'Search', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <div class="mb-1 text-end">
+    <%= page_entries_info @tech_salaries, entry_name: 'item' %>
+  </div>
+
+  <div class="d-flex mb-1 justify-content-end">
+    <%= paginate @tech_salaries %>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-10 col-md-8 grid-header-col">Salary details</div>
+    <div class="col-2 col-md-4 grid-header-col">Accuracy</div>
+  </div>
+
+  <% @tech_salaries.each do |salary| %>
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-8 grid-content-col"><%= organization.amount %></div>
+      <div class="col-2 col-md-4 grid-content-col"><%= organization.year %></div>
+    </div>
+  <% end %>
+
+  <div class="d-flex justify-content-end mt-1">
+    <%= paginate @tech_salaries %>
+  </div>
+</div>
