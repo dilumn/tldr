@@ -14,7 +14,8 @@ module CurrencyEnum
       BTC: 'BTC',
       NOK: 'NOK',
       CAD: 'CAD',
-      AED: 'AED'
+      AED: 'AED',
+      LKR: 'LKR'
     }
   end
 end
