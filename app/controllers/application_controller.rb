@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   end
 
   def tenant
+    return 'rails_admin' if request.path.include?('admin')
+
     ::MultiTenant::FetchTenant.call(request) || 'peggedplacetowork'
   end
 end
