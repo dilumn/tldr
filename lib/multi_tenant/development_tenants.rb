@@ -3,7 +3,7 @@ module MultiTenant
     TENANTS = {
       localhost: 'peggedplacetowork',
       peggedplacetowork: 'peggedplacetowork',
-      techindex: 'techindex'
+      techsalary: 'techsalary'
     }.freeze
   end
 end

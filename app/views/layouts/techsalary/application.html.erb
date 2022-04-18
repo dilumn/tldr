@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Peggedplacetowork</title>
+    <title>TechSalary</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <%= favicon_link_tag asset_path('favicon.png') %>
+    <%= favicon_link_tag asset_path('techsalary/favicon.png') %>
 
     <%= analytics_init if GoogleAnalytics.valid_tracker? %>
   </head>
@@ -17,8 +17,8 @@
   <body>
     <%= render "layouts/flash" %>
 
-    <%= render "layouts/peggedplacetowork/nav_bar" %>
+    <%= render "layouts/techsalary/nav_bar" %>
     <%= yield %>
-    <%= render "layouts/techindex/footer" %>
+    <%= render "layouts/techsalary/footer" %>
   </body>
 </html>
