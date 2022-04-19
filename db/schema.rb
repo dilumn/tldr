@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_18_175841) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_19_165646) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_175841) do
     t.string "status", default: "approved", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "salaries_technologies", id: false, force: :cascade do |t|
+    t.bigint "salary_id", null: false
+    t.bigint "technology_id", null: false
+    t.index ["salary_id", "technology_id"], name: "index_salaries_technologies_on_salary_id_and_technology_id"
+    t.index ["technology_id", "salary_id"], name: "index_salaries_technologies_on_technology_id_and_salary_id"
   end
 
   create_table "technologies", force: :cascade do |t|

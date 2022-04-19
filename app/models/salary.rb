@@ -14,4 +14,7 @@ class Salary < ApplicationRecord
     CAD: 'CAD',
     AED: 'AED'
   }
+
+  has_many :salaries_technologies
+  has_many :technologies, through: :salaries_technologies
 end
