@@ -32,7 +32,7 @@
 
   <% @tech_salaries.each do |salary| %>
     <div class="row justify-content-center">
-      <div class="col-10 col-md-8 grid-content-col"><%= salary.amount %></div>
+      <div class="col-10 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
       <div class="col-2 col-md-4 grid-content-col"><%= salary.year %></div>
     </div>
   <% end %>
