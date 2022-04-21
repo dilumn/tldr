@@ -1,4 +1,7 @@
 class Salary < ApplicationRecord
+  include DesignationEnum
+  include TechnologyEnum
+
   enum currency: {
     LKR: 'LKR',
     USD: 'USD',
@@ -15,8 +18,22 @@ class Salary < ApplicationRecord
     AED: 'AED'
   }
 
-  has_many :salaries_technologies
-  has_many :technologies, through: :salaries_technologies
+  enum education: {
+    bachelors_degree: 'bachelors_degree',
+    diploma: 'diploma',
+    higher_diploma: 'higher_diploma',
+    msc: 'msc',
+    phd: 'phd'
+  }
+
+  enum company_size: {
+    below_10: 'below_10',
+    '10_to_20': '10_to_20',
+    '20_to_50': '20_to_50',
+    '50_to_100': '50_to_100',
+    '100_to_500': '100_to_500',
+    'more_than_500': 'more_than_500'
+  }
 
   def salary_details
     text = ''
@@ -27,7 +44,7 @@ class Salary < ApplicationRecord
     text += "<b>Education</b> - #{education}<br>" if education.present?
     text += "<b>Company size</b> - #{company_size}<br>" if company_size.present?
     text += "<b>Designation</b> - #{designation}<br>" if designation.present?
-    text += "<b>Technologies</b> - #{technologies.pluck(:name).join(',')}<br>" unless technologies.empty?
+    text += "<b>Primary Technology</b> - #{primary_technology}<br>" if primary_technology.present?
 
     text
   end

@@ -13,10 +13,10 @@ class SalariesController < ApplicationController
 
     if salary.save
       flash[:success] = "Thanks for submitting the request, we will review it & do nessasary changes. If the changes doesn't appear within few days, check change request page to see whether your request marked as not enough proof."
-      redirect_to root_path
+      redirect_to techsalary_root_path
     else
       flash[:error] = salary.errors.full_messages.join(', ')
-      redirect_to new_change_request_path
+      redirect_to new_salary_path
     end
   end
 
