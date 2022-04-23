@@ -35,16 +35,26 @@ class Salary < ApplicationRecord
     'more_than_500': 'more_than_500'
   }
 
+  has_many :salary_votes
+
+  def accurate_votes_count
+    salary_votes.select { |vote| vote.accurate? }.size
+  end
+
+  def fake_votes_count
+    salary_votes.select { |vote| vote.fake? }.size
+  end
+
   def salary_details
     text = ''
 
-    text += "<b>Amount</b> - #{amount} #{currency}<br>"
+    text += "<b>Amount</b> - #{amount.to_s(:delimited)} #{currency}<br>"
     text += "<b>Year</b> - #{year}<br>"
-    text += "<b>Work experience</b> - #{work_experience} years<br>"
-    text += "<b>Education</b> - #{education}<br>" if education.present?
+    text += "<b>Work experience</b> - #{work_experience} year/s<br>"
+    text += "<b>Education</b> - #{education.humanize}<br>" if education.present?
     text += "<b>Company size</b> - #{company_size}<br>" if company_size.present?
-    text += "<b>Designation</b> - #{designation}<br>" if designation.present?
-    text += "<b>Primary Technology</b> - #{primary_technology}<br>" if primary_technology.present?
+    text += "<b>Designation</b> - #{designation.humanize}<br>" if designation.present?
+    text += "<b>Primary Technology</b> - #{primary_technology.humanize}<br>" if primary_technology.present?
 
     text
   end

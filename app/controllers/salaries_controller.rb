@@ -1,6 +1,6 @@
 class SalariesController < ApplicationController
   def index
-    @q = Salary.ransack(params[:q])
+    @q = Salary.includes(:salary_votes).ransack(params[:q])
     @salaries = @q.result.page(params[:page])
   end
 

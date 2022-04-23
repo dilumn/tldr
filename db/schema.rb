@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_21_201252) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_201452) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,11 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_21_201252) do
     t.string "primary_technology"
   end
 
-  create_table "technologies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "status", default: "pending", null: false
+  create_table "salary_votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "salary_id"
+    t.integer "vote_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["salary_id"], name: "index_salary_votes_on_salary_id"
+    t.index ["user_id", "salary_id"], name: "index_salary_votes_on_user_id_and_salary_id", unique: true
+    t.index ["user_id"], name: "index_salary_votes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -23,15 +23,39 @@
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-10 col-md-8 grid-header-col">Salary details</div>
-    <div class="col-2 col-md-4 grid-header-col">Accuracy</div>
+    <div class="col-8 col-md-8 grid-header-col">Salary details</div>
+    <div class="col-4 col-md-4 grid-header-col">Accuracy Votes</div>
   </div>
 
   <% @salaries.each do |salary| %>
     <div class="row justify-content-center">
-      <div class="col-10 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
-      <div class="col-2 col-md-4 grid-content-col">
-        <%= salary.year %>
+      <div class="col-8 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
+      <div class="col-4 col-md-4 grid-content-col">
+        <div class="row ms-1 fw-bold">
+          <%= salary.accurate_votes_count %> voted as accurate
+        </div>
+        <div class="row ms-1 mb-4 fw-bold">
+          <%= salary.fake_votes_count %> voted as possible fake submission
+        </div>
+
+        <% if current_user %>
+          <div class="row">
+            <p>
+              What do you think? Vote here.
+            </p>
+            <div class="col-12 col-md-6 pb-1">
+              <%= button_to "Accurate", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control btn btn-primary" %>
+            </div>
+            <div class="col-12 col-md-6">
+              <%= button_to "Fake", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control btn btn-danger" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="row">
+            <%= button_to "Login to vote", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control" %>
+          </div>
+        <% end %>
+
       </div>
     </div>
   <% end %>
