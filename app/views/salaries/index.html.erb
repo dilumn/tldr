@@ -1,9 +1,6 @@
 <div class="container">
   <p>
-    Need to change any data here? <%= link_to "Submit", new_change_request_path %>
-  </p>
-  <p>
-    Need to add your company to the list? <%= link_to "Submit changes via Github", "https://github.com/dilumn/peggedplacetowork/issues/new", target: '_blank' %>
+    We value your present/past salary submissions here. So everyone can get an idea how much is the salary scale for different technologies in Sri Lanka. <%= link_to "Add your salary", new_salary_path %>
   </p>
 
   <hr class="mb-3">
@@ -18,11 +15,11 @@
   <% end %>
 
   <div class="mb-1 text-end">
-    <%= page_entries_info @tech_salaries, entry_name: 'salary' %>
+    <%= page_entries_info @salaries, entry_name: 'salary' %>
   </div>
 
   <div class="d-flex mb-1 justify-content-end">
-    <%= paginate @tech_salaries %>
+    <%= paginate @salaries %>
   </div>
 
   <div class="row justify-content-center">
@@ -30,14 +27,16 @@
     <div class="col-2 col-md-4 grid-header-col">Accuracy</div>
   </div>
 
-  <% @tech_salaries.each do |salary| %>
+  <% @salaries.each do |salary| %>
     <div class="row justify-content-center">
       <div class="col-10 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
-      <div class="col-2 col-md-4 grid-content-col"><%= salary.year %></div>
+      <div class="col-2 col-md-4 grid-content-col">
+        <%= salary.year %>
+      </div>
     </div>
   <% end %>
 
   <div class="d-flex justify-content-end mt-1">
-    <%= paginate @tech_salaries %>
+    <%= paginate @salaries %>
   </div>
 </div>

@@ -46,14 +46,14 @@
       </div>
 
       <div class="col-12 col-md-6 pb-3">
-        <%= f.label :primary_technology, "Primary technology you were working in the position"%>
+        <%= f.label :primary_technology, "Primary technology working in the position"%>
         <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
     </div>
 
     <div class="row justify-content-center mt-3">
       <div class="col-4 col-md-5">
-        <%= f.submit "Request", class: "form-control btn btn-primary" %>
+        <%= f.submit "Add", class: "form-control btn btn-primary" %>
       </div>
     </div>
 
