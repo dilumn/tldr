@@ -44,12 +44,12 @@
 
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
-        <%= f.label :designation, "Designation when receiving the salary"%>
+        <%= f.label :designation, "Designation when receiving the salary(Missing designation? submit an issue in Github)"%>
         <%= f.select :designation, Salary.designations.map{ |designation| [designation[0].humanize, designation[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
 
       <div class="col-12 col-md-6 pb-3">
-        <%= f.label :primary_technology, "Primary technology working in the position"%>
+        <%= f.label :primary_technology, "Primary technology working in the position(Missing technology? submit an issue in Github)"%>
         <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
     </div>
