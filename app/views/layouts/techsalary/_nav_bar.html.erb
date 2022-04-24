@@ -14,6 +14,9 @@
 
       <div>
         <%= link_to 'Add your salary', new_salary_path, class: "ms-1 me-2 btn btn-warning" %>
+        <% if current_user %>
+          <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger" %>
+        <% end %>
         <%= link_to image_tag("github-logo.png", width: 40), "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
       </div>
     </ul>

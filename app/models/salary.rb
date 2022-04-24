@@ -48,7 +48,7 @@ class Salary < ApplicationRecord
   def salary_details
     text = ''
 
-    text += "<b>Amount</b> - #{amount.to_s(:delimited)} #{currency}<br>"
+    text += "<b>Amount</b> - #{amount.to_fs(:delimited)} #{currency}<br>"
     text += "<b>Year</b> - #{year}<br>"
     text += "<b>Work experience</b> - #{work_experience} year/s<br>"
     text += "<b>Education</b> - #{education.humanize}<br>" if education.present?

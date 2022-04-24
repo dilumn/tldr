@@ -44,10 +44,10 @@
               What do you think? Vote here.
             </p>
             <div class="col-12 col-md-6 pb-1">
-              <%= button_to "Accurate", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control btn btn-primary" %>
+              <%= button_to "Accurate", vote_accurate_salary_path(salary), method: :post, class: "form-control btn btn-primary" %>
             </div>
             <div class="col-12 col-md-6">
-              <%= button_to "Fake", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control btn btn-danger" %>
+              <%= button_to "Fake", vote_fake_salary_path(salary), method: :post, class: "form-control btn btn-danger" %>
             </div>
           </div>
         <% else %>
