@@ -1,0 +1,24 @@
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <%= image_tag("techsalary/logo.png", width: 80) %>
+      <h3 class="ms-3">Community driven Sri Lankan tech salary database</h3>
+    </a>
+
+    <ul class="nav nav-pills">
+      <% if current_page?(techsalary_root_path) %>
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
+      <% else %>
+        <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+      <% end %>
+
+      <div>
+        <%= link_to 'Add your salary', new_salary_path, class: "ms-1 me-2 btn btn-warning" %>
+        <% if current_user %>
+          <%= link_to "Logout", destroy_user_session_path, data: { "turbo-method": :delete }, class: "btn btn-danger" %>
+        <% end %>
+        <%= link_to image_tag("github-logo.png", width: 40), "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
+      </div>
+    </ul>
+  </header>
+</div>

@@ -5,13 +5,5 @@
       <%= link_to 'Check here', "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
       <%= link_to image_tag("github-logo.png", width: 30), "https://github.com/dilumn/peggedplacetowork", target: '_blank' %>
     </p>
-
-    <p class="col-md-6 mb-0">
-      <% if current_user %>
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "form-control btn-danger" %>
-      <% else %>
-        <%= button_to "Admin login", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control btn-danger" %>
-      <% end %>
-    </p>
   </footer>
 </div>

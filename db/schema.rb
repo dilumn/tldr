@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_07_203903) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_24_055614) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,15 +44,37 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_07_203903) do
     t.string "proportion"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", null: false
-    t.string "full_name"
-    t.string "role", default: "normal_user", null: false
-    t.string "uid"
-    t.string "avatar_url"
+  create_table "salaries", force: :cascade do |t|
+    t.integer "amount", null: false
+    t.string "currency", null: false
+    t.integer "year", null: false
+    t.integer "work_experience", null: false
+    t.string "education"
+    t.string "company_size"
+    t.string "designation"
+    t.string "status", default: "approved", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "primary_technology"
+  end
+
+  create_table "salary_votes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "salary_id"
+    t.integer "vote_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["salary_id"], name: "index_salary_votes_on_salary_id"
+    t.index ["user_id", "salary_id"], name: "index_salary_votes_on_user_id_and_salary_id", unique: true
+    t.index ["user_id"], name: "index_salary_votes_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "hashed_email", null: false
+    t.string "role", default: "normal_user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashed_email"], name: "index_users_on_hashed_email", unique: true
   end
 
 end

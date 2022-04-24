@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h4>Submit your salary anonymously, we don't tie the salary to you even you are a logged in user.</h4>
+
+  <%= form_with model: @salary, class: 'pt-3 pb-3' do |f| %>
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :amount, "Salary amount", class: "required" %>
+        <%= f.number_field :amount, required: true, class: "form-control col-4" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :currency, "Currency", class: "required" %>
+        <%= f.select :currency, Salary.currencies, { include_blank: false }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :year, "Salary received year", class: "required" %>
+         <%= f.select :year, ((Date.today.year - 20)..Date.today.year).to_a.reverse, { include_blank: false }, class: "form-control" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :work_experience, "Work experience (in years) when receiving the salary", class: "required" %>
+        <%= f.select :work_experience, (0..30).to_a, { include_blank: false }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :education, "Highest educational qualification when receiving the salary"%>
+        <%= f.select :education, Salary.educations, { include_blank: true }, class: "form-control" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :company_size, "Company employee size when receiving the salary"%>
+        <%= f.select :company_size, Salary.company_sizes.map{ |size| [size[0].humanize, size[0]] }, { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :designation, "Designation when receiving the salary"%>
+        <%= f.select :designation, Salary.designations.map{ |designation| [designation[0].humanize, designation[0]] }, { include_blank: true }, class: "form-control" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :primary_technology, "Primary technology working in the position"%>
+        <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-4 col-md-5">
+        <%= f.submit "Add", class: "form-control btn btn-primary" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>

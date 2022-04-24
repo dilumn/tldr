@@ -6,10 +6,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_out_all_scopes
       sign_in(:user, user)
       flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
-      redirect_to root_path, event: :authentication
+      redirect_to peggedplacetowork_root_path, event: :authentication
     else
-      flash[:alert] = t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
-      redirect_to root_path
+      flash[:alert] = t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "Something went wrong, try again."
+      redirect_to peggedplacetowork_root_path
     end
   end
 
@@ -20,17 +20,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || root_path
+    stored_location_for(resource_or_scope) || peggedplacetowork_root_path
   end
 
   private
 
   def from_google_params
     @from_google_params ||= {
-      uid: auth.uid,
       email: auth.info.email,
-      full_name: auth.info.name,
-      avatar_url: auth.info.image
     }
   end
 
