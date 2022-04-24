@@ -8,7 +8,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
       redirect_to peggedplacetowork_root_path, event: :authentication
     else
-      flash[:alert] = t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
+      flash[:alert] = t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "Something went wrong, try again."
       redirect_to peggedplacetowork_root_path
     end
   end
@@ -27,10 +27,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def from_google_params
     @from_google_params ||= {
-      uid: auth.uid,
       email: auth.info.email,
-      full_name: auth.info.name,
-      avatar_url: auth.info.image
     }
   end
 

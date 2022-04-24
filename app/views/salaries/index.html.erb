@@ -1,7 +1,10 @@
 <div class="container">
   <p>
-    We value your present/past salary submissions here. So everyone can get an idea how much is the salary scale for different technologies in Sri Lanka. <%= link_to "Add your salary", new_salary_path %>
+    We value your present/past salary submissions here. So everyone can get an idea how much is the salary scale for different technologies in Sri Lanka. <%= link_to "Add your salary", new_salary_path %>.
   </p>
+  <h5>
+    We value your privacy on salary submissions & voting. So we only store SHA512 hashed email address in the database for voting and we do not connect salary submissions to user accounts.
+  </h5>
 
   <hr class="mb-3">
 
@@ -52,7 +55,7 @@
           </div>
         <% else %>
           <div class="row">
-            <%= button_to "Login to vote", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control" %>
+            <%= button_to "Login with Google to vote", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control" %>
           </div>
         <% end %>
 

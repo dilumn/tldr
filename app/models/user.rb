@@ -10,13 +10,8 @@ class User < ApplicationRecord
     super_admin: 'super_admin'
   }
 
-  def self.from_google(email:, full_name:, uid:, avatar_url:)
-    user = find_by(email: email)
-
-    return unless user
-
-    user.update(full_name: full_name, uid: uid, avatar_url: avatar_url)
-    user
+  def self.from_google(email:)
+    find_or_create_by(hashed_email: Digest::SHA512.hexdigest(email))
   end
 
   def admin_user?
