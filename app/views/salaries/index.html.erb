@@ -1,7 +1,4 @@
 <div class="container">
-  <p>
-    We value your present/past salary submissions here. So everyone can get an idea how much is the salary scale for different technologies in Sri Lanka. <%= link_to "Add your salary", new_salary_path %>.
-  </p>
   <h5>
     We value your privacy on salary submissions & voting. So we only store SHA512 hashed email address in the database for voting and we do not connect salary submissions to user accounts.
   </h5>
@@ -9,11 +6,41 @@
   <hr class="mb-3">
 
   <%= search_form_for @q, url: techsalary_root_path, class: 'row pb-3' do |f| %>
-    <div class="col-4 col-md-2">
-      <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
+    <p>
+      Filter by:
+    </p>
+    <div class="row">
+      <div class="col-6 col-md-3">
+        <%= f.number_field :amount_gteq, placeholder: 'Salary above', class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :year_eq, ((Date.today.year - 20)..Date.today.year).to_a.reverse, { include_blank: 'Salary year'}, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :work_experience_eq, (0..30).to_a, { include_blank: 'Work experience'}, class: "form-control" %>
+      </div>
     </div>
-    <div class="col-4 col-md-5">
-      <%= f.submit 'Search', class: 'btn btn-primary' %>
+    <div class="row mt-1">
+      <div class="col-6 col-md-3">
+        <%= f.select :education_eq, Salary.educations.to_a, { include_blank: 'Education'}, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :company_size_eq, Salary.company_sizes.map{ |size| [size[0].humanize, size[0]] }, { include_blank: 'Company size'}, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :designation_eq, Salary.designations.map{ |designation| [designation[0].humanize, designation[0]] }, { include_blank: 'Designation'}, class: "form-control" %>
+      </div>
+      <div class="col-6 col-md-3">
+        <%= f.select :primary_technology_eq, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: 'Technology'}, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col-6 col-md-3">
+        <%= f.submit 'Search', class: 'btn btn-primary' %>
+      </div>
     </div>
   <% end %>
 
