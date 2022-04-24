@@ -1,7 +1,7 @@
 module MultiTenant
   class ProductionTenants
     TENANTS = {
-      peggedplacetowork: 'peggedplacetowork.lk'
+      'peggedplacetowork.lk': 'peggedplacetowork'
     }.freeze
   end
 end
