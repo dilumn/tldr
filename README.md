@@ -54,7 +54,7 @@ Contributions are very welcome
 
 ### Local development
 prerequisites -
-- Ruby 3.0.3
+- Ruby 3.1.2
 - Postgres
 
 Run `bundle install` to download the dependencies
