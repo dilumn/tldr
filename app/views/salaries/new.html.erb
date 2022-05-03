@@ -33,24 +33,24 @@
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :education, "Highest educational qualification when receiving the salary"%>
-        <%= f.select :education, Salary.educations, { include_blank: true }, class: "form-control" %>
+        <%= f.select :education, Salary.educations.map{ |education| [education[1], education[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
 
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :company_size, "Company employee size when receiving the salary"%>
-        <%= f.select :company_size, Salary.company_sizes.map{ |size| [size[0].humanize, size[0]] }, { include_blank: true }, class: "form-control" %>
+        <%= f.select :company_size, Salary.company_sizes.map{ |size| [size[1], size[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :designation, "Designation when receiving the salary(Missing designation? submit an issue in Github)"%>
-        <%= f.select :designation, Salary.designations.map{ |designation| [designation[0].humanize, designation[0]] }, { include_blank: true }, class: "form-control" %>
+        <%= f.select :designation, Salary.designations.map{ |designation| [designation[1], designation[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
 
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :primary_technology, "Primary technology working in the position(Missing technology? submit an issue in Github)"%>
-        <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: true }, class: "form-control" %>
+        <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[1], technology[0]] }, { include_blank: true }, class: "form-control" %>
       </div>
     </div>
 

@@ -19,20 +19,20 @@ class Salary < ApplicationRecord
   }
 
   enum education: {
-    bachelors_degree: 'bachelors_degree',
-    diploma: 'diploma',
-    higher_diploma: 'higher_diploma',
-    msc: 'msc',
-    phd: 'phd'
+    bachelors_degree: 'Bachelors Degree',
+    diploma: 'Diploma',
+    higher_diploma: 'Higher Diploma',
+    msc: 'MSc',
+    phd: 'PhD'
   }
 
   enum company_size: {
-    below_10: 'below_10',
-    '10_to_20': '10_to_20',
-    '20_to_50': '20_to_50',
-    '50_to_100': '50_to_100',
-    '100_to_500': '100_to_500',
-    'more_than_500': 'more_than_500'
+    below_10: 'Below 10',
+    '10_to_20': '10 to 20',
+    '20_to_50': '20 to 50',
+    '50_to_100': '50 to 100',
+    '100_to_500': '100 to 500',
+    'more_than_500': 'More than 500'
   }
 
   has_many :salary_votes
@@ -51,10 +51,10 @@ class Salary < ApplicationRecord
     text += "<b>Amount</b> - #{amount.to_fs(:delimited)} #{currency}<br>"
     text += "<b>Year</b> - #{year}<br>"
     text += "<b>Work experience</b> - #{work_experience} year/s<br>"
-    text += "<b>Education</b> - #{education.humanize}<br>" if education.present?
-    text += "<b>Company size</b> - #{company_size}<br>" if company_size.present?
-    text += "<b>Designation</b> - #{designation.humanize}<br>" if designation.present?
-    text += "<b>Primary Technology</b> - #{primary_technology.humanize}<br>" if primary_technology.present?
+    text += "<b>Education</b> - #{Salary.educations[education]}<br>" if education.present?
+    text += "<b>Company size</b> - #{Salary.company_sizes[company_size]}<br>" if company_size.present?
+    text += "<b>Designation</b> - #{Salary.designations[designation]}<br>" if designation.present?
+    text += "<b>Primary Technology</b> - #{Salary.primary_technologies[primary_technology]}<br>" if primary_technology.present?
 
     text
   end

@@ -57,7 +57,7 @@
 
   <div class="row justify-content-center">
     <div class="col-4 col-md-2 grid-header-col">Request type</div>
-    <div class="col-4 col-md-2  grid-header-col">Company name</div>
+    <div class="col-4 col-md-2 grid-header-col">Company name</div>
     <div class="col-3 col-md-3 d-none d-md-block grid-header-col">Description</div>
     <div class="col-3 col-md-3 d-none d-md-block grid-header-col">Context</div>
     <div class="col-4 col-md-2 grid-header-col">Status</div>
@@ -67,8 +67,8 @@
     <div class="row justify-content-center">
       <div class="col-4 col-md-2 grid-content-col"><%= change_request.request_type.humanize %></div>
       <div class="col-4 col-md-2 grid-content-col"><%= change_request.company_name %></div>
-      <div class="col-3 col-md-3 grid-content-col"><%= change_request.description %></div>
-      <div class="col-3 col-md-3 grid-content-col"><%= change_request.context %></div>
+      <div class="col-3 col-md-3 d-none d-md-block grid-content-col"><%= change_request.description %></div>
+      <div class="col-3 col-md-3 d-none d-md-block grid-content-col"><%= change_request.context %></div>
       <div class="col-4 col-md-2 grid-content-col"><%= change_request.status.humanize %></div>
     </div>
   <% end %>

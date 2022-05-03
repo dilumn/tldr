@@ -25,16 +25,16 @@
     </div>
     <div class="row mt-1">
       <div class="col-6 col-md-3">
-        <%= f.select :education_eq, Salary.educations.to_a, { include_blank: 'Education'}, class: "form-control" %>
+        <%= f.select :education_eq, Salary.educations.map{ |education| [education[1], education[0]] }, { include_blank: 'Education'}, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :company_size_eq, Salary.company_sizes.map{ |size| [size[0].humanize, size[0]] }, { include_blank: 'Company size'}, class: "form-control" %>
+        <%= f.select :company_size_eq, Salary.company_sizes.map{ |size| [size[1], size[0]] }, { include_blank: 'Company size'}, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :designation_eq, Salary.designations.map{ |designation| [designation[0].humanize, designation[0]] }, { include_blank: 'Designation'}, class: "form-control" %>
+        <%= f.select :designation_eq, Salary.designations.map{ |designation| [designation[1], designation[0]] }, { include_blank: 'Designation'}, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :primary_technology_eq, Salary.primary_technologies.map{ |technology| [technology[0].humanize, technology[0]] }, { include_blank: 'Technology'}, class: "form-control" %>
+        <%= f.select :primary_technology_eq, Salary.primary_technologies.map{ |technology| [technology[1], technology[0]] }, { include_blank: 'Technology'}, class: "form-control" %>
       </div>
     </div>
     <div class="row mt-1">
