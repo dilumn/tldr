@@ -14,13 +14,13 @@
         <%= f.number_field :amount_gteq, placeholder: 'Salary above', class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
+        <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency' }, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :year_eq, ((Date.today.year - 20)..Date.today.year).to_a.reverse, { include_blank: 'Salary year'}, class: "form-control" %>
+        <%= f.select :year_eq, ((Date.today.year - 20)..Date.today.year).to_a.reverse, { include_blank: 'Salary year' }, class: "form-control" %>
       </div>
       <div class="col-6 col-md-3">
-        <%= f.select :work_experience_eq, (0..30).to_a, { include_blank: 'Work experience'}, class: "form-control" %>
+        <%= f.select :work_experience_eq, (0..30).to_a, { include_blank: 'Work experience' }, class: "form-control" %>
       </div>
     </div>
     <div class="row mt-1">
@@ -38,8 +38,11 @@
       </div>
     </div>
     <div class="row mt-1">
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-md-1">
         <%= f.submit 'Search', class: 'btn btn-primary' %>
+      </div>
+      <div class="col-6 col-md-2">
+        <%= link_to "Clear Search", request.path, class: 'btn btn-warning' %>
       </div>
     </div>
   <% end %>

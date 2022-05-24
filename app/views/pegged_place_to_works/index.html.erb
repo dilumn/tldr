@@ -9,14 +9,17 @@
   <hr class="mb-3">
 
   <%= search_form_for @q, url: peggedplacetowork_root_path, class: 'row pb-3' do |f| %>
-    <div class="col-4 col-md-5">
+    <div class="col-3 col-md-5">
       <%= f.text_field :name_cont, placeholder: 'Search by company name', class: "form-control" %>
     </div>
-    <div class="col-4 col-md-2">
+    <div class="col-3 col-md-3">
       <%= f.select :pegged_currency_eq, Organization.pegged_currencies.to_a, { include_blank: 'Currency'}, class: "form-control" %>
     </div>
-    <div class="col-4 col-md-5">
+    <div class="col-3 col-md-1">
       <%= f.submit 'Search', class: 'btn btn-primary' %>
+    </div>
+    <div class="col-3 col-md-3">
+      <%= link_to "Clear", request.path, class: 'btn btn-warning' %>
     </div>
   <% end %>
 
