@@ -31,7 +31,14 @@ module DesignationEnum
       product_manager: 'Product Manager',
       senior_product_manager: 'Senior Product Manager',
       business_analyst: 'Business Analyst',
-      senior_business_analyst: 'Senior Business Analyst'
+      senior_business_analyst: 'Senior Business Analyst',
+      associate_ui_ux_engineer: 'Associate UI/UX Engineer',
+      ui_ux_engineer: 'UI/UX Engineer',
+      senior_ui_ux_engineer: 'Senior UI/UX Engineer',
+      lead_ui_ux_engineer: 'Lead UI/UX Engineer',
+      senior_lead_ui_ux_engineer: 'Senior Lead UI/UX Engineer',
+      ui_ux_architect: 'UI/UX Architect',
+      ui_ux_senior_architect: 'UI/UX Senior Architect'
     }
   end
 end
