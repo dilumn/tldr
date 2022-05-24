@@ -35,6 +35,11 @@ class Salary < ApplicationRecord
     'more_than_500': 'More than 500'
   }
 
+  enum status: {
+    approved: 'approved',
+    rejected: 'rejected'
+  }
+
   has_many :salary_votes
 
   def accurate_votes_count
