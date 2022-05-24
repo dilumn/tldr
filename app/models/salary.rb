@@ -60,6 +60,11 @@ class Salary < ApplicationRecord
     text += "<b>Company size</b> - #{Salary.company_sizes[company_size]}<br>" if company_size.present?
     text += "<b>Designation</b> - #{Salary.designations[designation]}<br>" if designation.present?
     text += "<b>Primary Technology</b> - #{Salary.primary_technologies[primary_technology]}<br>" if primary_technology.present?
+    text += "<b>Pegged to foreign currency?</b> - Yes <br>" if pegged_salary.present?
+
+    text += "<br>" if advice.present?
+
+    text += "<b>Advice for a junior to achieve your salary or even more</b> - #{advice} <br>" if advice.present?
 
     text
   end

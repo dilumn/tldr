@@ -26,7 +26,7 @@
 
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :work_experience, "Work experience (in years) when receiving the salary", class: "required" %>
-        <%= f.select :work_experience, (0..30).to_a, { include_blank: false }, class: "form-control" %>
+        <%= f.select :work_experience, (0..30).to_a, { include_blank: true }, required: true, class: "form-control" %>
       </div>
     </div>
 
@@ -51,6 +51,18 @@
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :primary_technology, "Primary technology working in the position(Missing technology? submit an issue in Github)"%>
         <%= f.select :primary_technology, Salary.primary_technologies.map{ |technology| [technology[1], technology[0]] }, { include_blank: true }, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :pegged_salary, "Pegged to foreign currency? Yes"%>
+        <%= f.check_box :pegged_salary, class: "" %>
+      </div>
+
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :advice, "Advice for a junior to achieve your salary or even more"%>
+        <%= f.text_area :advice, rows: 5, class: "form-control" %>
       </div>
     </div>
 
