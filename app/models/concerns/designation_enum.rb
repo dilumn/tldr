@@ -54,7 +54,11 @@ module DesignationEnum
       associate_devops_engineer: 'Associate Devops Engineer',
       devops_engineer: 'Devops Engineer',
       senior_devops_engineer: 'Senior Devops Engineer',
-      lead_devops_engineer: 'Lead Devops Engineer'
+      lead_devops_engineer: 'Lead Devops Engineer',
+      frontend_engineer: 'Frontend Engineer',
+      frontend_developer: 'Frontend Developer',
+      senior_frontend_engineer: 'Senior Frontend Engineer',
+      senior_frontend_developer: 'Senior Frontend Developer'
     }
   end
 end
