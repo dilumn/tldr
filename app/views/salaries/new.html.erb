@@ -8,7 +8,7 @@
   <%= form_with model: @salary, class: 'pt-3 pb-3' do |f| %>
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
-        <%= f.label :amount, "Salary amount (Monthly)", class: "required" %>
+        <%= f.label :amount, "Salary amount (Monthly). If your salary is pegged to a foreign currency, submit the amount in foreign currency", class: "required" %>
         <%= f.number_field :amount, required: true, class: "form-control col-4" %>
       </div>
 
