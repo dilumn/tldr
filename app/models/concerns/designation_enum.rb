@@ -38,7 +38,23 @@ module DesignationEnum
       lead_ui_ux_engineer: 'Lead UI/UX Engineer',
       senior_lead_ui_ux_engineer: 'Senior Lead UI/UX Engineer',
       ui_ux_architect: 'UI/UX Architect',
-      ui_ux_senior_architect: 'UI/UX Senior Architect'
+      ui_ux_senior_architect: 'UI/UX Senior Architect',
+      associate_system_engineer: 'Associate System Engineer',
+      system_engineer: 'System Engineer',
+      senior_system_engineer: 'Senior System Engineer',
+      lead_system_engineer: 'Lead System Engineer',
+      associate_network_engineer: 'Associate Network Engineer',
+      network_engineer: 'Network Engineer',
+      senior_network_engineer: 'Senior Network Engineer',
+      lead_network_engineer: 'Lead Network Engineer',
+      associate_security_engineer: 'Associate Security Engineer',
+      security_engineer: 'Security Engineer',
+      senior_security_engineer: 'Senior Security Engineer',
+      lead_security_engineer: 'Lead Security Engineer',
+      associate_devops_engineer: 'Associate Devops Engineer',
+      devops_engineer: 'Devops Engineer',
+      senior_devops_engineer: 'Senior Devops Engineer',
+      lead_devops_engineer: 'Lead Devops Engineer'
     }
   end
 end
