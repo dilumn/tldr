@@ -56,10 +56,17 @@
 
     <div class="row">
       <div class="col-12 col-md-6 pb-3">
+        <%= f.check_box :pegged_salary %>
         <%= f.label :pegged_salary, "Pegged to foreign currency? Yes"%>
-        <%= f.check_box :pegged_salary, class: "" %>
       </div>
 
+      <div class="col-12 col-md-6 pb-3 d-block">
+        <%= f.check_box :company_base_outside, class: 'd-inline' %>
+        <%= f.label :company_base_outside, "Company doesn't have a legal entity in Sri Lanka? Yes", class: 'd-inline' %>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-12 col-md-6 pb-3">
         <%= f.label :advice, "Advice for a junior to achieve your salary or even more"%>
         <%= f.text_area :advice, rows: 5, class: "form-control" %>
