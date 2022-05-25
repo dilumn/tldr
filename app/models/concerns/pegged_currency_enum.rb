@@ -1,7 +1,7 @@
 module PeggedCurrencyEnum
   PEGGED_CURRENCIES = {
     USD: 'USD',
-    EURO: 'EURO',
+    EUR: 'EUR',
     AUD: 'AUD',
     SGD: 'SGD',
     GBP: 'GBP',

@@ -2,7 +2,7 @@ module CurrencyEnum
   CURRENCIES = {
     LKR: 'LKR',
     USD: 'USD',
-    EURO: 'EURO',
+    EUR: 'EUR',
     AUD: 'AUD',
     SGD: 'SGD',
     GBP: 'GBP',
