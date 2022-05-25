@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_131239) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_151331) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_131239) do
 
   create_table "data_migrations", id: false, force: :cascade do |t|
     t.string "version"
+  end
+
+  create_table "exchange_rates", force: :cascade do |t|
+    t.string "from", null: false
+    t.string "to", null: false
+    t.decimal "rate", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "organizations", force: :cascade do |t|
