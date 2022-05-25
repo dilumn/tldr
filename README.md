@@ -1,8 +1,8 @@
-# PeggedPlaceToWork
+# PeggedPlaceToWork & TechSalary
 
 ![](https://raw.githubusercontent.com/dilumn/peggedplacetowork/master/app/assets/images/logo.png)
 
-This is the Ruby on Rails application of [peggedplacetowork.lk](https://peggedplacetowork.lk/)
+This is the Ruby on Rails application of [peggedplacetowork.lk](https://peggedplacetowork.lk/) & [techsalary.lk](https://techsalary.lk/)
 
 ### Add/change company data
 #### Option 1
