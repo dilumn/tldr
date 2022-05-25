@@ -1,6 +1,5 @@
-module CurrencyEnum
-  CURRENCIES = {
-    LKR: 'LKR',
+module PeggedCurrencyEnum
+  PEGGED_CURRENCIES = {
     USD: 'USD',
     EURO: 'EURO',
     AUD: 'AUD',
@@ -12,6 +11,7 @@ module CurrencyEnum
     BTC: 'BTC',
     NOK: 'NOK',
     CAD: 'CAD',
-    AED: 'AED'
+    AED: 'AED',
+    JPY: 'JPY'
   }.freeze
 end

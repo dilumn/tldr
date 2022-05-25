@@ -1,22 +1,9 @@
 class Salary < ApplicationRecord
   include DesignationEnum
   include TechnologyEnum
+  include CurrencyEnum
 
-  enum currency: {
-    LKR: 'LKR',
-    USD: 'USD',
-    EURO: 'EURO',
-    AUD: 'AUD',
-    SGD: 'SGD',
-    GBP: 'GBP',
-    SEK: 'SEK',
-    NZD: 'NZD',
-    HKD: 'HKD',
-    BTC: 'BTC',
-    NOK: 'NOK',
-    CAD: 'CAD',
-    AED: 'AED'
-  }
+  enum currency: CURRENCIES
 
   enum education: {
     bachelors_degree: 'Bachelors Degree',
@@ -53,7 +40,7 @@ class Salary < ApplicationRecord
   def salary_details
     text = ''
 
-    text += "<b>Amount</b> - #{amount.to_fs(:delimited)} #{currency}<br>"
+    text += "#{salary_amount}<br>"
     text += "<b>Year</b> - #{year}<br>"
     text += "<b>Work experience</b> - #{work_experience} year/s<br>"
     text += "<b>Education</b> - #{Salary.educations[education]}<br>" if education.present?
@@ -68,5 +55,13 @@ class Salary < ApplicationRecord
     text += "<b>Advice for a junior to achieve your salary or even more</b> - #{advice} <br>" if advice.present?
 
     text
+  end
+
+  def salary_amount
+    amount_text = "<b>Amount</b> - #{amount.to_fs(:delimited)} #{currency}"
+
+    return amount_text if currency == 'LKR'
+
+    "#{amount_text}, (Approximately - #{Money.from_amount(amount, currency).exchange_to('LKR').to_i.to_fs(:delimited)} LKR)"
   end
 end

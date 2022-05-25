@@ -1,6 +1,8 @@
 class ChangeRequest < ApplicationRecord
-  include CurrencyEnum
+  include PeggedCurrencyEnum
   include ProportionEnum
+
+  enum pegged_currency: PEGGED_CURRENCIES
 
   enum request_type: {
     add_new_data: 'add_new_data',

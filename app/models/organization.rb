@@ -1,6 +1,8 @@
 class Organization < ApplicationRecord
-  include CurrencyEnum
+  include PeggedCurrencyEnum
   include ProportionEnum
+
+  enum pegged_currency: PEGGED_CURRENCIES
 
   validates :name, uniqueness: true
 
