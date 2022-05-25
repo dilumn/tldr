@@ -2,7 +2,7 @@ class SalariesController < ApplicationController
   before_action :authenticate_user!, only: %i[vote_accurate vote_fake]
 
   def index
-    @q = Salary.includes(:salary_votes).where(status: 'approved').order(currency: :desc, year: :desc).ransack(params[:q])
+    @q = Salary.includes(:salary_votes).where(status: 'approved').order(id: :desc).ransack(params[:q])
     @salaries = @q.result.page(params[:page])
   end
 
