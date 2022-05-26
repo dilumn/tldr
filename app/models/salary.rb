@@ -48,7 +48,7 @@ class Salary < ApplicationRecord
     text += "<b>Designation</b> - #{Salary.designations[designation]}<br>" if designation.present?
     text += "<b>Primary Technology</b> - #{Salary.primary_technologies[primary_technology]}<br>" if primary_technology.present?
     text += "<b>Pegged to foreign currency?</b> - Yes <br>" if pegged_salary.present?
-    text += "<b>Company doesn't have a legal entity in Sri Lanka?</b> - Yes <br>" if company_base_outside.present?
+    text += "<b>Company has a legal entity in Sri Lanka?</b> - No <br>" if company_base_lk == false
 
     text += "<br>" if advice.present?
 
