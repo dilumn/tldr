@@ -62,7 +62,9 @@ module DesignationEnum
       associate_security_analyst: 'Associate Security Analyst',
       security_analyst: 'Security Analyst',
       information_security_manager: 'Information Security Manager',
-      soc_engineer: 'SOC Engineer'
+      soc_engineer: 'SOC Engineer',
+      technical_trainer: 'Technical Trainer',
+      technology_evangelist: 'Technology evangelist'
     }
   end
 end
