@@ -58,7 +58,11 @@ module DesignationEnum
       frontend_engineer: 'Frontend Engineer',
       frontend_developer: 'Frontend Developer',
       senior_frontend_engineer: 'Senior Frontend Engineer',
-      senior_frontend_developer: 'Senior Frontend Developer'
+      senior_frontend_developer: 'Senior Frontend Developer',
+      associate_security_analyst: 'Associate Security Analyst',
+      security_analyst: 'Security Analyst',
+      information_security_manager: 'Information Security Manager',
+      soc_engineer: 'SOC Engineer'
     }
   end
 end
