@@ -9,7 +9,7 @@ class Salary < ApplicationRecord
     bachelors_degree: 'Bachelors Degree',
     diploma: 'Diploma',
     higher_diploma: 'Higher Diploma',
-    msc: 'MSc',
+    masters: 'Masters',
     phd: 'PhD'
   }
 
