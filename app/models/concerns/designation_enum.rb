@@ -64,7 +64,10 @@ module DesignationEnum
       information_security_manager: 'Information Security Manager',
       soc_engineer: 'SOC Engineer',
       technical_trainer: 'Technical Trainer',
-      technology_evangelist: 'Technology evangelist'
+      technology_evangelist: 'Technology evangelist',
+      senior_functional_consultant: 'Senior Functional Consultant',
+      technical_consultant: 'Technical Consultant',
+      senior_technical_consultant: 'Senior Technical Consultant'
     }
   end
 end
