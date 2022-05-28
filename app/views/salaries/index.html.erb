@@ -1,99 +1,31 @@
 <div class="container">
-  <h5>
-    We value your privacy on salary submissions & voting. So we only store SHA512 hashed email address in the database for voting and we do not connect salary submissions to user accounts.
+
+  <div class="row">
+    <div class="col-6 col-md-2">
+      <%= link_to "Salary full list here", all_salaries_path, class: '' %>
+    </div>
+  </div>
+
+  <h5 class="pt-3">
+    Salaries group by the designation
   </h5>
 
-  <hr class="mb-3">
+  <% @grouped_salaries.each do |designation, salaries| %>
 
-  <%= search_form_for @q, url: techsalary_root_path, class: 'row pb-3' do |f| %>
-    <p>
-      Filter by:
-    </p>
-    <div class="row">
-      <div class="col-6 col-md-3">
-        <%= f.number_field :amount_gteq, placeholder: 'Salary above', class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :currency_eq, Salary.currencies.to_a, { include_blank: 'Currency' }, class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :year_eq, ((Date.today.year - 20)..Date.today.year).to_a.reverse, { include_blank: 'Salary year' }, class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :work_experience_eq, (0..30).to_a, { include_blank: 'Work experience' }, class: "form-control" %>
-      </div>
+    <div class="d-block">
+      <a class="btn btn-secondary mb-2" data-bs-toggle="collapse" href='#collapseFor<%= designation %>' role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+        <%= Salary.designations[designation] || 'No designation mentioned' %> <%= salaries.size %> record/s
+      </a>
     </div>
-    <div class="row mt-1">
-      <div class="col-6 col-md-3">
-        <%= f.select :education_eq, Salary.educations.map{ |education| [education[1], education[0]] }, { include_blank: 'Education'}, class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :company_size_eq, Salary.company_sizes.map{ |size| [size[1], size[0]] }, { include_blank: 'Company size'}, class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :designation_eq, Salary.designations.map{ |designation| [designation[1], designation[0]] }, { include_blank: 'Designation'}, class: "form-control" %>
-      </div>
-      <div class="col-6 col-md-3">
-        <%= f.select :primary_technology_eq, Salary.primary_technologies.map{ |technology| [technology[1], technology[0]] }, { include_blank: 'Technology'}, class: "form-control" %>
-      </div>
+
+    <div class="collapse multi-collapse pb-2 container" id='collapseFor<%= designation %>'>
+      <% salaries.sort_by(&:salary_amount_lkr).reverse.each do |salary| %>
+        <div class="row">
+          <div class="col-12 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
+        </div>
+      <% end %>
     </div>
-    <div class="row mt-1">
-      <div class="col-6 col-md-1">
-        <%= f.submit 'Search', class: 'btn btn-primary' %>
-      </div>
-      <div class="col-6 col-md-2">
-        <%= link_to "Clear Search", request.path, class: 'btn btn-warning' %>
-      </div>
-    </div>
+
   <% end %>
 
-  <div class="mb-1 text-end">
-    <%= page_entries_info @salaries, entry_name: 'salary' %>
-  </div>
-
-  <div class="d-flex mb-1 justify-content-end">
-    <%= paginate @salaries %>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-8 col-md-8 grid-header-col">Salary details</div>
-    <div class="col-4 col-md-4 grid-header-col">Accuracy Votes</div>
-  </div>
-
-  <% @salaries.each do |salary| %>
-    <div class="row justify-content-center">
-      <div class="col-8 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
-      <div class="col-4 col-md-4 grid-content-col">
-        <div class="row ms-1 fw-bold">
-          <%= salary.accurate_votes_count %> voted as accurate
-        </div>
-        <div class="row ms-1 mb-4 fw-bold">
-          <%= salary.fake_votes_count %> voted as possible fake
-        </div>
-
-        <% if current_user %>
-          <div class="row">
-            <p>
-              What do you think? Vote here.
-            </p>
-            <div class="col-12 col-md-6 pb-1">
-              <%= button_to "Accurate", vote_accurate_salary_path(salary), method: :post, class: "form-control btn btn-primary" %>
-            </div>
-            <div class="col-12 col-md-6">
-              <%= button_to "Fake", vote_fake_salary_path(salary), method: :post, class: "form-control btn btn-danger" %>
-            </div>
-          </div>
-        <% else %>
-          <div class="row">
-            <%= button_to "Login with Google to vote", user_google_oauth2_omniauth_authorize_path, method: :post, 'data-turbo': false, class: "form-control" %>
-          </div>
-        <% end %>
-
-      </div>
-    </div>
-  <% end %>
-
-  <div class="d-flex justify-content-end mt-1">
-    <%= paginate @salaries %>
-  </div>
 </div>

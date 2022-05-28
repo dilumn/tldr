@@ -22,6 +22,10 @@ Rails.application.routes.draw do
         post 'vote_accurate'
         post 'vote_fake'
       end
+
+      collection do
+        get 'all'
+      end
     end
   end
 
