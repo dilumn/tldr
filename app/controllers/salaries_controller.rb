@@ -2,6 +2,10 @@ class SalariesController < ApplicationController
   before_action :authenticate_user!, only: %i[vote_accurate vote_fake]
 
   def index
+    @grouped_salaries = Salary.includes(:salary_votes).where(status: 'approved').group_by(&:designation)
+  end
+
+  def all
     @q = Salary.includes(:salary_votes).where(status: 'approved').order(id: :desc).ransack(params[:q])
     @salaries = @q.result.page(params[:page])
   end
@@ -15,7 +19,7 @@ class SalariesController < ApplicationController
 
     if salary.save
       flash[:success] = "Salary added."
-      redirect_to techsalary_root_path
+      redirect_to all_salaries_path
     else
       flash[:error] = salary.errors.full_messages.join(', ')
       redirect_to new_salary_path

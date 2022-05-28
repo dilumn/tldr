@@ -40,7 +40,7 @@ class Salary < ApplicationRecord
   def salary_details
     text = ''
 
-    text += "#{salary_amount}<br>"
+    text += "#{salary_amount_text}<br>"
     text += "<b>Year</b> - #{year}<br>"
     text += "<b>Work experience</b> - #{work_experience} year/s<br>"
     text += "<b>Education</b> - #{Salary.educations[education]}<br>" if education.present?
@@ -57,11 +57,15 @@ class Salary < ApplicationRecord
     text
   end
 
-  def salary_amount
+  def salary_amount_text
     amount_text = "<b>Amount</b> - #{amount.to_fs(:delimited)} #{currency}"
 
     return amount_text if currency == 'LKR'
 
-    "#{amount_text}, (Approximately - #{Money.from_amount(amount, currency).exchange_to('LKR').to_i.to_fs(:delimited)} LKR)"
+    "#{amount_text}, (Approximately - #{salary_amount_lkr.to_fs(:delimited)} LKR)"
+  end
+
+  def salary_amount_lkr
+    Money.from_amount(amount, currency).exchange_to('LKR').to_i
   end
 end
