@@ -2,7 +2,7 @@ class SalariesController < ApplicationController
   before_action :authenticate_user!, only: %i[vote_accurate vote_fake]
 
   def index
-    @grouped_salaries = Salary.includes(:salary_votes).where(status: 'approved').group_by(&:designation)
+    @grouped_salaries = Salary.includes(:salary_votes).where(status: 'approved').group_by(&:designation).sort_by{|key, value| -value.size}.to_h
   end
 
   def all

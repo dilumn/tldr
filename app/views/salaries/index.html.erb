@@ -10,22 +10,29 @@
     Salaries group by designation
   </h5>
 
-  <% @grouped_salaries.each do |designation, salaries| %>
+  <div class="accordion accordion-flush" id="salaryGroupByDesignation">
+    <% @grouped_salaries.each do |designation, salaries| %>
 
-    <div class="d-block">
-      <a class="btn btn-secondary mb-2" data-bs-toggle="collapse" href='#collapseFor<%= designation %>' role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
-        <%= Salary.designations[designation] || 'No designation mentioned' %> <%= salaries.size %> record/s
-      </a>
-    </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFor<%= designation %>">
+          <button class="accordion-button collapsed bg-secondary text-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFor<%= designation %>" aria-expanded="false" aria-controls="flush-collapseFor<%= designation %>">
+            <b><%= Salary.designations[designation] || 'No designation mentioned' %></b> &nbsp;=> <%= salaries.size %> record/s
+          </button>
+        </h2>
 
-    <div class="collapse multi-collapse pb-2 container" id='collapseFor<%= designation %>'>
-      <% salaries.sort_by(&:salary_amount_lkr).reverse.each do |salary| %>
-        <div class="row">
-          <div class="col-12 col-md-8 grid-content-col"><%= salary.salary_details.html_safe %></div>
+        <div id="flush-collapseFor<%= designation %>" class="accordion-collapse collapse" aria-labelledby="flush-headingFor<%= designation %>" data-bs-parent="#salaryGroupByDesignation">
+          <% salaries.sort_by(&:salary_amount_lkr).reverse.each do |salary| %>
+            <div class="accordion-body border-bottom"><%= salary.salary_details.html_safe %></div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
+      </div>
 
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
