@@ -36,7 +36,12 @@ module TechnologyEnum
       'kotlin': 'Kotlin',
       'perl': 'Perl',
       'go': 'Go',
-      'selenium': 'Selenium'
+      'selenium': 'Selenium',
+      'it_infrastructure': 'IT Infrastructure',
+      'cloud': 'Cloud',
+      'virtualization': 'Virtualization',
+      'networking': 'Networking',
+      'system_administration': 'System Administration'
     }
   end
 end
