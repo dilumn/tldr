@@ -67,7 +67,9 @@ module DesignationEnum
       technology_evangelist: 'Technology evangelist',
       senior_functional_consultant: 'Senior Functional Consultant',
       technical_consultant: 'Technical Consultant',
-      senior_technical_consultant: 'Senior Technical Consultant'
+      senior_technical_consultant: 'Senior Technical Consultant',
+      manager_it_operation: 'Manager IT Operations',
+      dispatch_field_engineer: 'Dispatch/ Field Engineer'
     }
   end
 end
