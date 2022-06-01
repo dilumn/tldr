@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeRequestsController < ApplicationController
   def new
     @change_request = ChangeRequest.new
@@ -9,7 +11,8 @@ class ChangeRequestsController < ApplicationController
     change_request = ChangeRequest.new(permitted_params)
 
     if change_request.save
-      flash[:success] = "Thanks for submitting the request, we will review it & do nessasary changes. If the changes doesn't appear within few days, check change request page to see whether your request marked as not enough proof."
+      flash[:success] =
+        "Thanks for submitting the request, we will review it & do nessasary changes. If the changes doesn't appear within few days, check change request page to see whether your request marked as not enough proof."
       redirect_to peggedplacetowork_root_path
     else
       flash[:error] = change_request.errors.full_messages.join(', ')

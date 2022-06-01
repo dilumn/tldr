@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeRequest < ApplicationRecord
   include PeggedCurrencyEnum
   include ProportionEnum

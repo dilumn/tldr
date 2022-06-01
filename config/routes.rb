@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -6,16 +8,16 @@ Rails.application.routes.draw do
     delete 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
 
-  scope :constraints => lambda {|req| MultiTenant::FetchTenant.call(req) == 'peggedplacetowork' } do
-    root :to => "pegged_place_to_works#index", as: :peggedplacetowork_root
+  scope constraints: ->(req) { MultiTenant::FetchTenant.call(req) == 'peggedplacetowork' } do
+    root to: 'pegged_place_to_works#index', as: :peggedplacetowork_root
 
     get 'great_vs_pegged_place_to_work', to: 'great_place_to_works#index'
 
     resources :change_requests, only: %i[new create]
   end
 
-  scope :constraints => lambda {|req| MultiTenant::FetchTenant.call(req) == 'techsalary' } do
-    root :to => "salaries#index", as: :techsalary_root
+  scope constraints: ->(req) { MultiTenant::FetchTenant.call(req) == 'techsalary' } do
+    root to: 'salaries#index', as: :techsalary_root
 
     resources :salaries, only: %i[new create] do
       member do

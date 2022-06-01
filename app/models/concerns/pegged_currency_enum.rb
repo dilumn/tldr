@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PeggedCurrencyEnum
   PEGGED_CURRENCIES = {
     USD: 'USD',

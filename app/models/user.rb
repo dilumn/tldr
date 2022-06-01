@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
-  ADMIN_ROLES = %w(readonly_admin operation_admin super_admin)
+  ADMIN_ROLES = %w[readonly_admin operation_admin super_admin].freeze
 
   enum role: {
     normal_user: 'normal_user',

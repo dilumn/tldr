@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 class SalariesController < ApplicationController
   before_action :authenticate_user!, only: %i[vote_accurate vote_fake]
 
   def index
-    @grouped_salaries = Salary.includes(:salary_votes).where(status: 'approved').group_by(&:designation).sort_by{|key, value| -value.size}.to_h
+    @grouped_salaries = Salary.includes(:salary_votes).where(status: 'approved').group_by(&:designation).sort_by do |_key, value|
+      -value.size
+    end.to_h
   end
 
   def all
@@ -18,7 +22,7 @@ class SalariesController < ApplicationController
     salary = Salary.new(permitted_params)
 
     if salary.save
-      flash[:success] = "Salary added."
+      flash[:success] = 'Salary added.'
       redirect_to all_salaries_path
     else
       flash[:error] = salary.errors.full_messages.join(', ')
@@ -46,15 +50,14 @@ class SalariesController < ApplicationController
 
   def add_vote(vote_type)
     if vote(vote_type).persisted?
-      flash[:success] = "Thank you for the vote."
-      redirect_to techsalary_root_path
+      flash[:success] = 'Thank you for the vote.'
     else
-      flash[:error] = "You have already voted for this salary. Cannot vote twice"
-      redirect_to techsalary_root_path
+      flash[:error] = 'You have already voted for this salary. Cannot vote twice'
     end
+    redirect_to techsalary_root_path
   end
 
   def vote(vote_type)
-    SalaryVote.create(user: current_user, salary: selected_salary, vote_type: vote_type)
+    SalaryVote.create(user: current_user, salary: selected_salary, vote_type:)
   end
 end

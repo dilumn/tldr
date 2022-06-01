@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def bootstrap_class_for_flash(flash_type)
     case flash_type

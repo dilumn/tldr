@@ -4,7 +4,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    return unless user && user.admin_user?
+    return unless user&.admin_user?
 
     can :access, :rails_admin
     can :read, :dashboard
@@ -21,6 +21,6 @@ class Ability
   end
 
   def operation_admin
-    can [:read, :create, :update], [Organization, ChangeRequest]
+    can %i[read create update], [Organization, ChangeRequest]
   end
 end

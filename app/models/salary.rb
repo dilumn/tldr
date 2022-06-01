@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Salary < ApplicationRecord
   include DesignationEnum
   include TechnologyEnum
@@ -19,7 +21,7 @@ class Salary < ApplicationRecord
     '20_to_50': '20 to 50',
     '50_to_100': '50 to 100',
     '100_to_500': '100 to 500',
-    'more_than_500': 'More than 500'
+    more_than_500: 'More than 500'
   }
 
   enum status: {
@@ -30,11 +32,11 @@ class Salary < ApplicationRecord
   has_many :salary_votes
 
   def accurate_votes_count
-    salary_votes.select { |vote| vote.accurate? }.size
+    salary_votes.count(&:accurate?)
   end
 
   def fake_votes_count
-    salary_votes.select { |vote| vote.fake? }.size
+    salary_votes.count(&:fake?)
   end
 
   def salary_details
@@ -46,11 +48,13 @@ class Salary < ApplicationRecord
     text += "<b>Education</b> - #{Salary.educations[education]}<br>" if education.present?
     text += "<b>Company size</b> - #{Salary.company_sizes[company_size]}<br>" if company_size.present?
     text += "<b>Designation</b> - #{Salary.designations[designation]}<br>" if designation.present?
-    text += "<b>Primary Technology</b> - #{Salary.primary_technologies[primary_technology]}<br>" if primary_technology.present?
-    text += "<b>Pegged to foreign currency?</b> - Yes <br>" if pegged_salary.present?
-    text += "<b>Company has a legal entity in Sri Lanka?</b> - No <br>" if company_base_lk == false
+    if primary_technology.present?
+      text += "<b>Primary Technology</b> - #{Salary.primary_technologies[primary_technology]}<br>"
+    end
+    text += '<b>Pegged to foreign currency?</b> - Yes <br>' if pegged_salary.present?
+    text += '<b>Company has a legal entity in Sri Lanka?</b> - No <br>' if company_base_lk == false
 
-    text += "<br>" if advice.present?
+    text += '<br>' if advice.present?
 
     text += "<b>Advice for a junior to achieve your salary or even more</b> - #{advice} <br>" if advice.present?
 
