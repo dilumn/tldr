@@ -2,7 +2,9 @@
 
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+    # rubocop:disable Naming/VariableNumber
     def google_oauth2
+      # rubocop:enable Naming/VariableNumber
       user = User.from_google(**from_google_params)
 
       if user.present?

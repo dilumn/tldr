@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  # rubocop:disable Naming/VariableNumber
   devise :omniauthable, omniauth_providers: [:google_oauth2]
+  # rubocop:enable Naming/VariableNumber
 
   ADMIN_ROLES = %w[readonly_admin operation_admin super_admin].freeze
 

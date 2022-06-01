@@ -14,6 +14,9 @@ AllCops:
 Layout/LineLength:
   Max: 120
 
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 Lint/RaiseException:
@@ -38,6 +41,20 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Metrics/BlockLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
@@ -225,7 +242,7 @@ Rails/I18nLazyLookup: # new in 2.14
 Rails/I18nLocaleAssignment: # new in 2.11
   Enabled: true
 Rails/I18nLocaleTexts: # new in 2.14
-  Enabled: true
+  Enabled: false
 Rails/Inquiry: # new in 2.7
   Enabled: true
 Rails/MailerName: # new in 2.7
