@@ -29,7 +29,7 @@ class Salary < ApplicationRecord
     rejected: 'rejected'
   }
 
-  has_many :salary_votes, dependent: true
+  has_many :salary_votes, dependent: :destroy
 
   def accurate_votes_count
     salary_votes.count(&:accurate?)
