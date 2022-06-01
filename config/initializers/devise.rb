@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'c2de9a33f42eb9fd7ec06a4d2b51436ee6fbf0cdc7d5eda1c758c5c6e91841807d67085a7cbd25138bc4a8d4fae823f46c95017d03a4869caa531f6551f07783'
+  # config.secret_key = 'c2de9a33f42eb9fd7ec06a4d2b51436ee6fbf0cdc7d5eda1c758c5'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'bb69262df4a1af3d6989f4bf978756dd03ef117a5ffa9bb141588ed45324358a4f6801be0b08872365844f73bc77a1fde90712386550918f19ea6714f4c902f0'
+  # config.pepper = 'bb69262df4a1af3d6989f4bf978756dd03ef117a5ffa9bb141588ed45324'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -273,7 +273,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
+  # rubocop:disable Naming/VariableNumber
+  config.omniauth :google_oauth2, ENV.fetch('GOOGLE_OAUTH_CLIENT_ID', nil), ENV.fetch('GOOGLE_OAUTH_CLIENT_SECRET', nil)
+  # rubocop:enable Naming/VariableNumber
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

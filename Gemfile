@@ -1,46 +1,53 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby '3.1.2'
 
-gem "rails", "~> 7.0.3"
-gem "sprockets-rails"
-gem "pg", "~> 1.1"
-gem "puma", "~> 5.6"
-gem "importmap-rails"
-gem "turbo-rails"
-gem "stimulus-rails"
-gem "jbuilder"
-gem "redis", "~> 4.0"
+gem 'importmap-rails'
+gem 'jbuilder'
+gem 'pg', '~> 1.1'
+gem 'puma', '~> 5.6'
+gem 'rails', '~> 7.0.3'
+gem 'redis', '~> 4.0'
+gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails'
 
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
-gem "bootsnap", require: false
-gem "sassc-rails"
+gem 'bootsnap', require: false
 gem 'bootstrap', '~> 5.1.3'
+gem 'sassc-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'bcrypt'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
-gem 'bcrypt'
 
-gem 'rails_admin'
 gem 'cancancan'
+gem 'rails_admin'
 
-gem 'nonschema_migrations', '~> 6.5'
-gem "ransack", "~> 2.6"
 gem 'kaminari'
+gem 'nonschema_migrations', '~> 6.5'
+gem 'ransack', '~> 2.6'
 
 gem 'google-analytics-rails', '1.1.1'
 
 gem 'money-rails'
 
+gem 'rubocop'
+gem 'rubocop-performance'
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
+
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
 end
 
 group :development do
-  gem "web-console"
   gem 'pry'
+  gem 'web-console'
 end

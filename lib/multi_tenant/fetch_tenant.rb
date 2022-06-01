@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MultiTenant
   class FetchTenant
     def self.call(request)

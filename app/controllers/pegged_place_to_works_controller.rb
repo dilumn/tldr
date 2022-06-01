@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PeggedPlaceToWorksController < ApplicationController
   def index
     @q = Organization.ransack(params[:q])

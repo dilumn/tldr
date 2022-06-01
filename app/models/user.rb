@@ -1,7 +1,11 @@
-class User < ApplicationRecord
-  devise :omniauthable, omniauth_providers: [:google_oauth2]
+# frozen_string_literal: true
 
-  ADMIN_ROLES = %w(readonly_admin operation_admin super_admin)
+class User < ApplicationRecord
+  # rubocop:disable Naming/VariableNumber
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
+  # rubocop:enable Naming/VariableNumber
+
+  ADMIN_ROLES = %w[readonly_admin operation_admin super_admin].freeze
 
   enum role: {
     normal_user: 'normal_user',

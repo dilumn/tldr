@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GreatPlaceToWorksController < ApplicationController
   def index
     @q = Organization.ransack(params[:q])

@@ -1,13 +1,13 @@
 # encoding : utf-8
+# frozen_string_literal: true
 
 MoneyRails.configure do |config|
-
   # To set the default currency
   #
   config.default_currency = :lkr
 
   # Set default bank object
-  config.default_bank = Money::Bank::VariableExchange.new("ExchangeRate")
+  config.default_bank = Money::Bank::VariableExchange.new('ExchangeRate')
 
   # Add exchange rates to current money bank object.
   # (The conversion rate refers to one direction only)
