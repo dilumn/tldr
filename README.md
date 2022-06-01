@@ -1,8 +1,11 @@
 # PeggedPlaceToWork & TechSalary
 
-![](https://raw.githubusercontent.com/dilumn/peggedplacetowork/master/app/assets/images/logo.png)
+![](https://raw.githubusercontent.com/dilumn/peggedplacetowork/master/app/assets/images/peggedplacetowork/logo.png)
+![](https://raw.githubusercontent.com/dilumn/peggedplacetowork/master/app/assets/images/techsalary/logo.png)
 
 This is the Ruby on Rails application of [peggedplacetowork.lk](https://peggedplacetowork.lk/) & [techsalary.lk](https://techsalary.lk/)
+
+[![Ruby Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rubystyle.guide)
 
 ### Add/change company data
 #### Option 1
