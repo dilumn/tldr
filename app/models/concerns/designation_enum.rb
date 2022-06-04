@@ -71,7 +71,12 @@ module DesignationEnum
       technical_consultant: 'Technical Consultant',
       senior_technical_consultant: 'Senior Technical Consultant',
       manager_it_operation: 'Manager IT Operations',
-      dispatch_field_engineer: 'Dispatch/ Field Engineer'
+      dispatch_field_engineer: 'Dispatch/ Field Engineer',
+      associate_project_manager: 'Associate Project Manager',
+      project_manager: 'Project Manager',
+      senior_project_manager: 'Senior Project Manager',
+      pmo_manager: 'PMO Manager',
+      head_of_delivery: 'Head of Delivery'
     }
   end
 end
