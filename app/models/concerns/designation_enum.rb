@@ -76,7 +76,10 @@ module DesignationEnum
       project_manager: 'Project Manager',
       senior_project_manager: 'Senior Project Manager',
       pmo_manager: 'PMO Manager',
-      head_of_delivery: 'Head of Delivery'
+      head_of_delivery: 'Head of Delivery',
+      associate_reliability_engineer: 'Associate Reliability Engineer',
+      reliability_engineer: 'Reliability Engineer',
+      senior_reliability_engineer: 'Senior Reliability Engineer'
     }
   end
 end
