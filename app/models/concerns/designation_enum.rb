@@ -79,7 +79,9 @@ module DesignationEnum
       head_of_delivery: 'Head of Delivery',
       associate_reliability_engineer: 'Associate Reliability Engineer',
       reliability_engineer: 'Reliability Engineer',
-      senior_reliability_engineer: 'Senior Reliability Engineer'
+      senior_reliability_engineer: 'Senior Reliability Engineer',
+      support_engineer: 'Support Engineer',
+      senior_support_engineer: 'Senior Support Engineer'
     }
   end
 end
