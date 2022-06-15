@@ -81,7 +81,21 @@ module DesignationEnum
       reliability_engineer: 'Reliability Engineer',
       senior_reliability_engineer: 'Senior Reliability Engineer',
       support_engineer: 'Support Engineer',
-      senior_support_engineer: 'Senior Support Engineer'
+      senior_support_engineer: 'Senior Support Engineer',
+      associate_data_architect: 'Associate Data Architect',
+      data_architect: 'Data Architect',
+      senior_data_architect: 'Senior Data Architect',
+      principle_data_architect: 'Principle Data Architect',
+      associate_data_engineer: 'Associate Data Engineer',
+      data_engineer: 'Data Engineer',
+      senior_data_engineer: 'Senior Data Engineer',
+      lead_data_engineer: 'Lead Data Engineer',
+      junior_data_scientist: 'Junior Data Scientist',
+      data_scientist: 'Data Scientist',
+      senior_data_scientist: 'Senior Data Scientist',
+      junior_machine_learning_engineer: 'Junior Machine Learning Engineer',
+      machine_learning_engineer: 'Machine Learning Engineer',
+      senior_machine_learning_engineer: 'Senior Machine Learning Engineer'
     }
   end
 end
