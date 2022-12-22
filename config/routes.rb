@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     delete 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
 
+  scope constraints: ->(req) { MultiTenant::FetchTenant.call(req) == 'tldr' } do
+    root to: 'tldr_main#index', as: :tldr_main_root
+  end
+
   scope constraints: ->(req) { MultiTenant::FetchTenant.call(req) == 'peggedplacetowork' } do
     root to: 'pegged_place_to_works#index', as: :peggedplacetowork_root
 
