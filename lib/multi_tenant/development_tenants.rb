@@ -3,9 +3,12 @@
 module MultiTenant
   class DevelopmentTenants
     TENANTS = {
-      localhost: 'techsalary',
-      peggedplacetowork: 'peggedplacetowork',
-      techsalary: 'techsalary'
+      'localhost': 'tldr',
+      'tldr': 'tldr',
+      'peggedplacetowork': 'peggedplacetowork',
+      'peggedplacetowork.tldr': 'peggedplacetowork',
+      'techsalary': 'techsalary',
+      'techsalary.tldr': 'techsalary'
     }.freeze
   end
 end
