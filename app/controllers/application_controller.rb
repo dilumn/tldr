@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     return unless legacy_domain.present?
 
     flash[:alert] = "Redirecting to our new home"
-    redirect_to host: "https://#{legacy_domain}?allow_other_host=true", allow_other_host: true
+    redirect_to "https://#{legacy_domain}", allow_other_host: true
   end
 
   def legacy_domain
