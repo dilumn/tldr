@@ -4,7 +4,8 @@ class ThetaxController < ApplicationController
 
   def index
     @tax = Tax.new(
-      current_salary: session[:current_salary],
+      basic_salary: session[:basic_salary],
+      allowance: session[:allowance],
       tax_amount: session[:tax_amount],
       epf: session[:epf],
       etf: session[:etf],
@@ -13,8 +14,13 @@ class ThetaxController < ApplicationController
   end
 
   def calculate
-    calculated_tax = Tax.new(current_salary: params[:tax][:current_salary].to_i).calculate
-    session[:current_salary] = calculated_tax.current_salary
+    calculated_tax = Tax.new(
+      basic_salary: params[:tax][:basic_salary].to_i,
+      allowance: params[:tax][:allowance].to_i
+    ).calculate
+
+    session[:basic_salary] = calculated_tax.basic_salary
+    session[:allowance] = calculated_tax.allowance
     session[:tax_amount] = calculated_tax.tax_amount
     session[:epf] = calculated_tax.epf
     session[:etf] = calculated_tax.etf

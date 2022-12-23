@@ -9,12 +9,11 @@ class Tax
   EPF_RATE = 0.08
   ETF_RATE = 0.03
 
-  attr_accessor :current_salary, :tax_amount, :epf, :etf, :take_home
+  attr_accessor :basic_salary, :allowance, :tax_amount, :epf, :etf, :take_home
 
   def calculate
+    current_salary = basic_salary + allowance
     annual_salary = current_salary * 12
-    epf = annual_salary * EPF_RATE
-    annual_etf = annual_salary * ETF_RATE
     remaining_taxable = annual_salary - TAX_FREE_LIMIT
 
     calculated_tax = 0
@@ -38,8 +37,8 @@ class Tax
 
 
     self.tax_amount = monthly_calculated_tax
-    self.epf = current_salary  * EPF_RATE
-    self.etf = current_salary * ETF_RATE
+    self.epf = basic_salary  * EPF_RATE
+    self.etf = basic_salary * ETF_RATE
     self.take_home = (current_salary - self.tax_amount - self.epf - self.etf)
     self
   end
