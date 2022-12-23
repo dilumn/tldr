@@ -1,0 +1,32 @@
+<div class="container">
+
+  <%= form_with model: @tax, url: tax_calculate_path, :html => {:method => :post}, class: 'pt-3 pb-3' do |f| %>
+    <div class="row">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :current_salary, "Salary amount (Monthly) in LKR", class: "required" %>
+        <%= f.number_field :current_salary, required: true, class: "form-control col-4" %>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-4 col-md-5">
+        <%= f.submit "Calculate", class: "form-control btn btn-primary" %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :tax_amount, "Monthly tax amount" %>
+        <%= f.number_field :tax_amount, disabled: true, class: "form-control col-4" %>
+      </div>
+    </div>
+
+  <% end %>
+
+  <p class="col-md-6 mb-0">
+    Want to contribute or report an issue?
+    <%= link_to 'Check here', "https://github.com/dilumn/tldr", target: '_blank' %>
+    <%= link_to image_tag("github-logo.png", width: 30), "https://github.com/dilumn/tldr", target: '_blank' %>
+  </p>
+  
+</div>

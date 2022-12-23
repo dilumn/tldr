@@ -35,5 +35,11 @@ Rails.application.routes.draw do
     end
   end
 
+  scope constraints: ->(req) { MultiTenant::FetchTenant.call(req) == 'thetax' } do
+    root to: 'thetax#index', as: :thetax_root
+
+    post 'tax_calculate', to: 'thetax#calculate'
+  end
+
   get '*path' => redirect('/') unless Rails.env.development?
 end
