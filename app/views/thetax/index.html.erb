@@ -21,6 +21,27 @@
       </div>
     </div>
 
+    <div class="row mt-4">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :epf, "Monthly EPF contribution" %>
+        <%= f.number_field :epf, disabled: true, class: "form-control col-4" %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :etf, "Monthly ETF contribution" %>
+        <%= f.number_field :etf, disabled: true, class: "form-control col-4" %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12 col-md-6 pb-3">
+        <%= f.label :take_home, "Monthly take home salary" %>
+        <%= f.number_field :take_home, disabled: true, class: "form-control col-4" %>
+      </div>
+    </div>
+
   <% end %>
 
   <p class="col-md-6 mb-0">
