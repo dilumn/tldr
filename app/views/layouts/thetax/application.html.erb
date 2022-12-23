@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Tax</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= favicon_link_tag asset_path('thetax/favicon.png') %>
+
+    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
+  </head>
+
+  <body>
+    <header class="d-flex flex-wrap justify-content-center mb-4 border-bottom container">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <%= image_tag("thetax/logo.png", width: 100) %>
+      </a>
+    </header>
+
+    <%= render "layouts/flash" %>
+
+    <%= yield %>
+  </body>
+</html>

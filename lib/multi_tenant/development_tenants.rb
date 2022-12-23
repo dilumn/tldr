@@ -8,10 +8,13 @@ module MultiTenant
       'peggedplacetowork': 'peggedplacetowork',
       'peggedplacetowork.tldr': 'peggedplacetowork',
       'techsalary': 'techsalary',
-      'techsalary.tldr': 'techsalary'
+      'techsalary.tldr': 'techsalary',
+      'thetax.tldr': 'thetax'
     }.freeze
 
     REDIRECT_LEGACY_MAPPING = {
+      'peggedplacetowork': 'peggedplacetowork.tldr',
+      'techsalary': 'techsalary.tldr'
     }.freeze
   end
 end
