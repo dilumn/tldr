@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+
+  before_action :legacy_redirect
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.peggedplacetowork_root_path, alert: exception.message
   end
@@ -15,5 +18,18 @@ class ApplicationController < ActionController::Base
     return 'rails_admin' if request.path.include?('admin')
 
     ::MultiTenant::FetchTenant.call(request)
+  end
+
+  private
+
+  def legacy_redirect
+    return unless legacy_domain.present?
+
+    flash[:alert] = "Redirecting to our new home"
+    redirect_to legacy_domain
+  end
+
+  def legacy_domain
+    "MultiTenant::#{Rails.env.capitalize}Tenants".constantize::REDIRECT_LEGACY_MAPPING[request.host.to_sym]
   end
 end
