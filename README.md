@@ -12,7 +12,7 @@ This is the Ruby on Rails application of [peggedplacetowork.lk](https://peggedpl
 Submit an issue [here](https://github.com/dilumn/peggedplacetowork/issues/new)
 
 #### Option 2
-Create your own data migration pull request
+Create your own data migration PR
 
 ```
 rails generate data_migration NameOfDataMigration
