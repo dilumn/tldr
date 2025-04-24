@@ -30,7 +30,7 @@ gem 'cancancan'
 gem 'rails_admin'
 
 gem 'kaminari'
-gem 'nonschema_migrations', '~> 6.5'
+gem 'nonschema_migrations', '~> 6.6'
 gem 'ransack', '~> 2.6'
 
 gem 'google-analytics-rails', '1.1.1'
