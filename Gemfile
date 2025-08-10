@@ -3,13 +3,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.1.6'
 
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.6'
-gem 'rails', '~> 7.0.4'
+gem 'puma', '~> 6'
+gem 'rails', '~> 7.1.4'
 gem 'redis', '~> 4.0'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
@@ -30,8 +30,8 @@ gem 'cancancan'
 gem 'rails_admin'
 
 gem 'kaminari'
-gem 'nonschema_migrations', '~> 6.5.1'
-gem 'ransack', '~> 2.6'
+gem 'nonschema_migrations'
+gem 'ransack'
 
 gem 'google-analytics-rails', '1.1.1'
 
