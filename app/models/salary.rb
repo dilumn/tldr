@@ -31,6 +31,10 @@ class Salary < ApplicationRecord
 
   has_many :salary_votes, dependent: :destroy
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["advice", "amount", "company_base_lk", "company_size", "created_at", "currency", "designation", "education", "id", "id_value", "pegged_salary", "primary_technology", "status", "updated_at", "work_experience", "year"]
+  end
+
   def accurate_votes_count
     salary_votes.count(&:accurate?)
   end
